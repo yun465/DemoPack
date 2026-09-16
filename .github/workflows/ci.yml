@@ -26,3 +26,13 @@ jobs:
       - run: npm run test:keyboard
       - run: npm run test:imports
       - run: npm run test:import-video
+      - run: npm run test:navigation
+      - name: Retain failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-diagnostics
+          path: |
+            test-results/**/failure.json
+            test-results/**/results.json
+          retention-days: 7

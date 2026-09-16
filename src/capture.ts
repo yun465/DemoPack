@@ -9,6 +9,7 @@ import { binary, run } from './process.js';
 import { writeBundle, type Event, type Attachments } from './bundle.js';
 import { serve } from './server.js';
 import { exportKit } from './kit.js';
+import { createSerialQueue } from './serial.js';
 
 export async function doctor() {
   const checks: Record<string, string> = { node: process.version };
@@ -107,6 +108,7 @@ export async function generate(
       clickUntil = 0;
     const epoch = performance.now();
     let lastFrame: { file: string; atMs: number; step: number } | undefined;
+    const exclusivePage = createSerialQueue();
     async function capture() {
       const atMs = performance.now() - epoch;
       const state = {
@@ -210,7 +212,7 @@ export async function generate(
       while (capturing) {
         check();
         const start = performance.now();
-        await capture();
+        await exclusivePage(capture);
         await delay(Math.max(0, 1000 / demo.captureFps - (performance.now() - start)));
       }
     })().catch((e) => {
@@ -245,9 +247,11 @@ export async function generate(
       }
       await hold(250);
       if (step.action === 'open') {
-        const response = await page.goto(step.url ? resolveUrl(step.url) : initial, {
-          waitUntil: 'load',
-        });
+        const response = await exclusivePage(() =>
+          page.goto(step.url ? resolveUrl(step.url) : initial, {
+            waitUntil: 'load',
+          }),
+        );
         if (response && response.status() >= 400)
           throw new Error(`Page returned HTTP ${response.status()}`);
       }

@@ -40,7 +40,8 @@
     "test:kit": "node tests/kit-integration.mjs",
     "test:keyboard": "node tests/keyboard.mjs",
     "test:imports": "node tests/imports-integration.mjs",
-    "test:import-video": "node tests/import-video.mjs"
+    "test:import-video": "node tests/import-video.mjs",
+    "test:navigation": "node tests/navigation.mjs"
   },
   "dependencies": {
     "playwright": "1.63.0",
