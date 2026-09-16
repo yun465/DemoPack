@@ -1,0 +1,22 @@
+name: Export problem
+description: A reproducible capture or material-pack failure
+body:
+  - type: textarea
+    attributes:
+      label: Expected and actual result
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Minimal demo.json and local page
+      description: Remove credentials, private URLs and real personal data.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Environment and diagnostics
+      description: OS, Node version, doctor output, failure phase and step. Review diagnostics for sensitive URLs before sharing.
+  - type: textarea
+    attributes:
+      label: Visual evidence
+      description: Which timestamp or screenshot shows the issue?

@@ -1,0 +1,74 @@
+[
+  {
+    "name": "showcase",
+    "runId": "2026-09-16T01-16-36-480Z-55dee647",
+    "mp4": {
+      "seconds": 28.64,
+      "width": 1024,
+      "height": 720,
+      "bytes": 306631
+    },
+    "gif": {
+      "seconds": 14.01,
+      "width": 720,
+      "height": 506,
+      "bytes": 522128
+    },
+    "meanCaptureFps": 9.166806655816783,
+    "maxCaptureGapMs": 111.74530000000232,
+    "hashes": "passed",
+    "fullDecode": "passed",
+    "movedOfflinePlayback": "passed",
+    "externalRequests": 0,
+    "readmeImages": "passed",
+    "previewCaptionsMatchManifest": "passed"
+  },
+  {
+    "name": "showcase-zh",
+    "runId": "2026-09-16T01-17-35-384Z-6d35bee5",
+    "mp4": {
+      "seconds": 21.16,
+      "width": 1024,
+      "height": 720,
+      "bytes": 189577
+    },
+    "gif": {
+      "seconds": 12.01,
+      "width": 640,
+      "height": 450,
+      "bytes": 215484
+    },
+    "meanCaptureFps": 9.142400918780028,
+    "maxCaptureGapMs": 111.78219999999965,
+    "hashes": "passed",
+    "fullDecode": "passed",
+    "movedOfflinePlayback": "passed",
+    "externalRequests": 0,
+    "readmeImages": "passed",
+    "previewCaptionsMatchManifest": "passed"
+  },
+  {
+    "name": "self-showcase",
+    "runId": "2026-09-16T01-17-59-940Z-36439b17",
+    "mp4": {
+      "seconds": 27.92,
+      "width": 1184,
+      "height": 900,
+      "bytes": 581070
+    },
+    "gif": {
+      "seconds": 14.01,
+      "width": 800,
+      "height": 608,
+      "bytes": 774525
+    },
+    "meanCaptureFps": 9.14539868040361,
+    "maxCaptureGapMs": 112.19859999999971,
+    "hashes": "passed",
+    "fullDecode": "passed",
+    "movedOfflinePlayback": "passed",
+    "externalRequests": 0,
+    "readmeImages": "passed",
+    "previewCaptionsMatchManifest": "passed"
+  }
+]

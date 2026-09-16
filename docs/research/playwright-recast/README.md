@@ -1,0 +1,906 @@
+# playwright-recast
+
+**Transform Playwright traces into stunning demo videos — automatically.**
+
+[![npm version](https://img.shields.io/npm/v/playwright-recast)](https://www.npmjs.com/package/playwright-recast)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+**[Website](https://thepatriczek.github.io/playwright-recast/)** · **[Documentation](https://thepatriczek.github.io/playwright-recast/docs)**
+
+> Your Playwright tests already capture everything — traces, screenshots, network activity, cursor positions. **playwright-recast** turns those artifacts into polished, narrated product videos with a single fluent pipeline.
+
+
+
+https://github.com/user-attachments/assets/418d996d-2e18-4ae8-9ccc-3e5161dc7af8
+
+
+
+
+---
+
+## SHOWCASE
+
+### Neo4j
+
+[![Snowflake Cortex Neo4j Agent Integration](https://img.youtube.com/vi/A20UqfxuKBA/maxresdefault.jpg)](https://www.youtube.com/watch?v=A20UqfxuKBA)
+
+**[Snowflake Cortex Neo4j Agent Integration](https://www.youtube.com/watch?v=A20UqfxuKBA)** — see a real agent workflow spanning Snowflake Cortex and Neo4j presented as a polished product video.
+
+> **A huge thank you to [@Andy2003](https://github.com/Andy2003)** for the outstanding, long-term contributions that have helped shape playwright-recast.
+
+---
+
+## Why?
+
+Recording product demos is painful. Every UI change means re-recording. Manual voiceover and subtitling takes hours. Timing is always off.
+
+**playwright-recast** flips this:** your Playwright tests become your video source.** Write tests once, regenerate polished videos on every deploy.
+
+```typescript
+import { Recast, ElevenLabsProvider } from 'playwright-recast'
+
+await Recast
+  .from('./test-results/trace.zip')
+  .parse()
+  .speedUp({ duringIdle: 3.0, duringUserAction: 1.0 })
+  .subtitlesFromSrt('./narration.srt')
+  .voiceover(ElevenLabsProvider({ voice: 'daniel' }), { normalize: true })
+  .render({ format: 'mp4', resolution: '1080p' })
+  .toFile('demo.mp4')
+```
+
+**That's it.** Trace in, polished video out.
+
+---
+
+## Features
+
+- **Fluent pipeline API** — Chainable, immutable, lazy-evaluated. Build complex pipelines that read like English.
+- **Trace-based processing** — Parses Playwright trace.zip (actions, screenshots, network, cursor positions). No manual recording needed.
+- **Smart speed control** — Automatically speeds up idle time, network waits, and navigation while keeping user actions at normal speed.
+- **TTS voiceover** — Generate narration with OpenAI TTS, ElevenLabs, or Amazon Polly. Properly timed with silence padding.
+- **Subtitle generation** — SRT, WebVTT, and ASS output. Import external SRT or generate from trace BDD step titles.
+- **Styled subtitle burn-in** — Configurable font, size, color, background box with opacity, padding, position. Smart punctuation-based chunking for single-line display.
+- **playwright-bdd support** — First-class integration with playwright-bdd Gherkin steps. Doc strings become voiceover narration.
+- **Click highlighting** — Animated ripple effect at click positions with optional click sound. Configurable color, opacity, radius, duration.
+- **Cursor overlay** — Animated cursor travels between click positions with configurable duration, easing, and post-arrival visibility. Bundled arrow cursor or custom image.
+- **Animated zoom with easing** — Auto-zoom uses customizable easing functions (ease-in-out, ease-out, cubic-bezier, or custom JS functions) with smooth zoom-to-zoom panning.
+- **Frame interpolation** — Smooth out choppy browser recordings with ffmpeg minterpolate. Blend, duplicate, or motion-compensated modes with multi-pass support.
+- **Step helpers** — `narrate()`, `highlight()`, `zoom()`, `pace()`, `typeText()`, `click()`, `markClick()`, `waitForNarration()` — importable helpers for Playwright step definitions. `typeText()` replaces instant fills with visible, naturally varied keystrokes; `click()` can dwell on the target to record the app's hover state; marker helpers write directly into the trace zip so the pipeline picks them up automatically via `subtitlesFromTrace()`.
+- **Polished click markers** — `click()` / `markClick()` mark a click in the trace; the renderer prefers these over auto-detected clicks and plays a deliberate, held cursor approach over the painted target (configurable via `cursorOverlay({ approachMs })`) — no more "the mouse moves before there's anything to click on."
+- **Voiceover-driven freezes** — When a TTS narration is longer than its visual window, the renderer holds the current frame until the audio finishes; overlays freeze with it, click sounds shift to match. `waitForNarration()` marks an explicit beat to hold on until a line is fully spoken — so with TTS you can skip `autoWait` entirely and run the test at full speed while the rendered video stays in sync.
+- **Soft (embedded) subtitle track** — `render({ embedSubtitles: true })` muxes a toggleable subtitle track into the container (`mov_text` for mp4, `webvtt` for webm).
+- **Background music** — Add background music with auto-ducking during voiceover, looping, and fade-out. Covers intro/outro.
+- **Intro/outro** — Prepend/append branded video clips with smooth crossfade transitions. Audio preserved.
+- **Suite videos** — One Playwright run, one video. A reporter records the run, each test becomes a clip in declaration order, and failures, skips and the final tally become cards. Exits with Playwright's own status.
+- **MCP server** — AI-assisted video creation via Model Context Protocol. Record, analyze, and render through any MCP-compatible client (Claude Code, etc.).
+- **recast-studio** — Record browser sessions via Playwright Codegen, then generate videos with a Claude Code skill. No code required.
+- **CLI included** — `npx playwright-recast -i trace.zip -o demo.mp4` — no code needed.
+- **Zero lock-in** — Every stage is optional. Use just the trace parser, just the subtitle generator, or the full pipeline.
+
+---
+
+## Quick Start
+
+### Install
+
+```bash
+npm install playwright-recast
+# or
+bun add playwright-recast
+```
+
+**System requirement:** `ffmpeg` and `ffprobe` must be on your PATH.
+
+```bash
+# macOS
+brew install ffmpeg
+
+# Ubuntu
+sudo apt install ffmpeg
+```
+
+**Trace inputs.** Two layouts work:
+
+- **Test-results directory** (preferred): pass a folder or `trace.zip` whose sibling is a `.webm` recorded by Playwright's `recordVideo` (`use: { video: 'on' }`). Native frame rate, best quality.
+- **Standalone `trace.zip`**: pass the zip alone — the pipeline assembles the source video from screencast JPEG frames stored inside the trace. Variable cadence (~capture rate), but works out of the box on traces from the Playwright trace viewer or test runs without `recordVideo`.
+
+### CLI Usage
+
+```bash
+# Basic — trace to video
+npx playwright-recast -i ./test-results/trace.zip -o demo.mp4
+
+# With speed processing
+npx playwright-recast -i ./traces --speed-idle 4.0 --speed-action 1.0
+
+# With external SRT subtitles
+npx playwright-recast -i ./traces --srt narration.srt --burn-subs
+
+# With TTS voiceover (OpenAI)
+npx playwright-recast -i ./traces --srt narration.srt --provider openai --voice nova
+
+# With TTS voiceover (ElevenLabs)
+npx playwright-recast -i ./traces --srt narration.srt --provider elevenlabs --voice onwK4e9ZLuTAKqWW03F9
+```
+
+### Programmatic API
+
+```typescript
+import { Recast, OpenAIProvider } from 'playwright-recast'
+
+// Minimal — just trace to video
+await Recast.from('./traces').parse().render().toFile('output.mp4')
+
+// Full pipeline
+await Recast
+  .from('./test-results/')
+  .parse()
+  .hideSteps(s => s.keyword === 'Given' && s.text?.includes('logged in'))
+  .speedUp({
+    duringIdle: 4.0,
+    duringUserAction: 1.0,
+    duringNetworkWait: 2.0,
+    minSegmentDuration: 500,
+  })
+  .subtitlesFromSrt('./narration.srt')
+  .voiceover(OpenAIProvider({
+    voice: 'nova',
+    speed: 1.2,
+    instructions: 'Professional product demo narration.',
+  }))
+  .render({
+    format: 'mp4',
+    resolution: '1080p',
+    fps: 60,
+    burnSubtitles: true,
+    subtitleStyle: {
+      fontSize: 48,
+      primaryColor: '#1a1a1a',
+      backgroundColor: '#FFFFFF',
+      backgroundOpacity: 0.75,
+      padding: 20,
+      bold: true,
+      chunkOptions: { maxCharsPerLine: 55 },
+    },
+  })
+  .toFile('demo.mp4')
+```
+
+### playwright-bdd Integration
+
+Use `narrate()`, `highlight()`, `zoom()`, `pace()`, `typeText()`, `click()`, and `waitForNarration()` in your BDD step definitions:
+
+```typescript
+// steps/fixtures.ts
+import { test } from 'playwright-bdd'
+import { setupRecast, narrate, highlight, zoom, pace, typeText, click, waitForNarration } from 'playwright-recast'
+
+setupRecast(test)
+// Optional global defaults:
+// setupRecast(test, { narrateAutoWait: true, clickSettleMs: 200, hoverDwellMs: 400, typingDelayMs: 100 })
+export { narrate, highlight, zoom, pace, typeText, click, waitForNarration }
+
+// steps/my-steps.ts
+import { Given, When, Then } from './fixtures'
+import { narrate, highlight, zoom, pace, typeText, click, waitForNarration } from 'playwright-recast'
+
+Given('the user opens the dashboard', async ({ page }, docString?: string) => {
+  await narrate(docString)
+  await page.goto('/dashboard')
+  await pace(page, 4000)
+})
+
+When('the user highlights revenue', async ({ page }, docString?: string) => {
+  await narrate(docString, { autoWait: true })  // pad test with estimated speak time
+  await typeText(page.getByLabel('Search'), 'quarterly revenue')
+  await highlight(page.locator('h2'), { text: 'Revenue' })
+  await zoom(page.locator('.kpi-card'), 1.3)
+})
+
+Then('the user opens the report', async ({ page }, docString?: string) => {
+  await narrate(docString)
+  await click(page.getByRole('link', { name: 'Reports' }))  // held cursor approach
+  await waitForNarration()                                  // hold until the line finishes
+})
+```
+
+Marker helpers write marker-prefixed `test.step()` entries into the trace zip after `setupRecast(test)` has connected them to Playwright — `subtitlesFromTrace()` picks them up and the renderer applies overlays, zoom, clicks, and per-narration timing automatically. `typeText()` performs real Playwright keyboard actions, so the trace and video capture each character without a marker or pipeline stage. `click()` markers render with a held cursor approach when the pipeline includes `cursorOverlay()` and/or `clickEffect()`.
+
+```gherkin
+Feature: Dashboard demo
+
+  Scenario: View analytics
+    Given the user opens the dashboard
+      """
+      Let's open the analytics dashboard to see real-time metrics.
+      """
+    When the user clicks the revenue chart
+      """
+      Clicking on the revenue chart reveals detailed breakdown.
+      """
+```
+
+---
+
+## Pipeline Stages
+
+Every stage is optional and composable:
+
+| Stage | Description |
+|-------|-------------|
+| `.parse()` | Parse Playwright trace.zip into structured data (actions, frames, network, cursor) |
+| `.injectActions(actions)` | Inject synthetic actions into a parsed trace (e.g., DOM-tracked actions from `page.pause()` recordings) |
+| `.hideSteps(predicate)` | Remove steps from the output (e.g., login, setup) |
+| `.speedUp(config)` | Adjust video speed based on activity (idle, action, network) |
+| `.subtitles(textFn)` | Generate subtitles from trace actions |
+| `.subtitlesFromSrt(path)` | Load subtitles from an external SRT file |
+| `.subtitlesFromTrace()` | Auto-generate subtitles from BDD step titles in trace |
+| `.textProcessing(config)` | Sanitize subtitle text before TTS (strip quotes, normalize dashes, custom rules) |
+| `.autoZoom(config)` | Auto-zoom to user actions with customizable easing transitions |
+| `.enrichZoomFromReport(steps)` | Apply zoom coordinates from external report data |
+| `.cursorOverlay(config)` | Animated cursor at click positions (appears, moves, disappears) |
+| `.clickEffect(config)` | Add visual ripple + optional click sound at click positions |
+| `.textHighlight(config)` | Animated marker overlay on text (swipe-in reveal, auto-positioned from report) |
+| `.backgroundMusic({ path, volume?, ... })` | Add background music with auto-ducking, loop, fade-out |
+| `.intro({ path, fadeDuration? })` | Prepend intro video with crossfade transition |
+| `.outro({ path, fadeDuration? })` | Append outro video with crossfade transition |
+| `.interpolate(config)` | Frame interpolation for smoother video (ffmpeg minterpolate) |
+| `.voiceover(provider, options?)` | Generate TTS audio from subtitle text; `{ normalize: true }` level-matches segments (EBU R128) |
+| `.render(config)` | Render final video (format, resolution, fps, styled subtitle burn-in) |
+| `.toFile(path)` | Execute pipeline and write output |
+
+---
+
+## Subtitle Styling
+
+Burn styled subtitles into the video with full control over appearance:
+
+```typescript
+.render({
+  burnSubtitles: true,
+  subtitleStyle: {
+    fontFamily: 'Arial',          // Any system font
+    fontSize: 48,                 // Pixels (relative to 1080p)
+    primaryColor: '#1a1a1a',      // Text color (hex)
+    backgroundColor: '#FFFFFF',   // Box background (hex)
+    backgroundOpacity: 0.75,      // 0.0 transparent — 1.0 opaque
+    padding: 20,                  // Box padding in px
+    bold: true,
+    position: 'bottom',           // 'bottom' or 'top'
+    marginVertical: 50,           // Distance from edge
+    marginHorizontal: 100,        // Side margins (text wraps within)
+    wrapStyle: 'smart',           // 'smart', 'endOfLine', 'none'
+    chunkOptions: {               // Split long text into single-line chunks
+      maxCharsPerLine: 55,        // Split at punctuation when text exceeds this
+      minCharsPerChunk: 15,       // Merge tiny fragments
+    },
+  },
+})
+```
+
+**Punctuation-based chunking** splits long subtitle text into shorter single-line entries. Time is distributed proportionally by character count. Splits at sentence boundaries (`. ! ?`) first, then clause boundaries (`, ; :`) if still too long.
+
+Without `subtitleStyle`, `burnSubtitles: true` falls back to default ffmpeg SRT rendering.
+
+---
+
+## Text Processing
+
+Clean subtitle text before sending to TTS providers. Removes typographic characters that cause artifacts in voice synthesis while keeping the original text for visual subtitles.
+
+```typescript
+// Built-in sanitization (strips smart quotes, normalizes dashes, etc.)
+.textProcessing({ builtins: true })
+
+// Custom regex rules
+.textProcessing({
+  builtins: true,
+  rules: [
+    { pattern: '\\bNSS\\b', flags: 'g', replacement: 'Nejvyšší správní soud' },
+  ],
+})
+
+// Programmatic transform
+.textProcessing({
+  transform: (text) => text.replace(/\[.*?\]/g, ''),
+})
+```
+
+**Built-in rules** (when `builtins: true`):
+- Remove double quotes: `„` `"` `"` `"` `«` `»` `"`
+- Remove single quotes: `'` `'` `‚` `‛` `‹` `›`
+- Dashes → comma: `–` `—` → `, `
+- Ellipsis: `…` → `...`
+- Normalize: NBSP → space, collapse whitespace, trim
+
+Text processing writes to `ttsText` — the voiceover uses cleaned text while burnt-in subtitles and SRT/VTT output keep the original `text`.
+
+**CLI:**
+```bash
+npx playwright-recast -i ./traces --text-processing --provider openai
+npx playwright-recast -i ./traces --text-processing-config ./rules.json --provider elevenlabs
+```
+
+---
+
+## TTS Providers
+
+### OpenAI TTS
+
+```typescript
+import { OpenAIProvider } from 'playwright-recast/providers/openai'
+
+OpenAIProvider({
+  voice: 'nova',          // alloy, echo, fable, onyx, nova, shimmer
+  model: 'gpt-4o-mini-tts',
+  speed: 1.2,
+  instructions: 'Calm, professional demo narration.',
+  cacheDir: './.recast-cache/openai',  // optional: disk cache to skip re-synthesis
+})
+```
+
+Requires `OPENAI_API_KEY` environment variable or `apiKey` option.
+
+### ElevenLabs
+
+```typescript
+import { ElevenLabsProvider } from 'playwright-recast/providers/elevenlabs'
+
+ElevenLabsProvider({
+  voice: 'onwK4e9ZLuTAKqWW03F9',  // Daniel
+  model: 'eleven_multilingual_v2',
+  languageCode: 'cs',              // Force Czech (ISO 639-1)
+  voiceSettings: {
+    stability: 0.75,               // Higher = more consistent delivery (less drift)
+    similarityBoost: 0.75,
+  },
+  cacheDir: './.recast-cache/elevenlabs',  // optional: disk cache to skip re-synthesis
+})
+```
+
+Requires `ELEVENLABS_API_KEY` environment variable or `apiKey` option.
+
+### Amazon Polly
+
+```typescript
+import { PollyProvider } from 'playwright-recast/providers/polly'
+
+PollyProvider({
+  region: 'us-east-1',
+  voice: 'Joanna',          // Matthew, Ruth, Stephen, Ivy, Joey, …
+  engine: 'neural',         // standard | neural | long-form | generative
+  sampleRate: '24000',
+  cacheDir: './.recast-cache/polly',  // optional: disk cache to skip re-synthesis
+  // Credentials are optional — the AWS SDK default chain is used
+  // (env vars, ~/.aws/credentials, IAM role on EC2/ECS/Lambda, SSO).
+})
+```
+
+Install the SDK alongside this package:
+
+```bash
+npm install @aws-sdk/client-polly
+```
+
+Resolves credentials from `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` (and optional `AWS_SESSION_TOKEN`), shared config, or — preferred on AWS — an attached IAM role.
+
+### Qwen3-TTS (local, GPU)
+
+Local TTS backed by Alibaba's Qwen3-TTS models. Two modes:
+
+- **Clone** — synthesize text in the voice of a reference WAV/MP3.
+- **Design** — synthesize text in a voice described by a prompt.
+
+```typescript
+import { QwenTtsProvider } from 'playwright-recast/providers/qwen'
+
+// Clone an existing voice
+.voiceover(QwenTtsProvider({
+  mode: 'clone',
+  voiceSample: './my-voice.wav',
+  refText: 'Welcome! In this screencast we will walk through the key concepts.',
+  language: 'English',
+  cacheAudio: true,
+}))
+
+// Design a voice from a description
+.voiceover(QwenTtsProvider({
+  mode: 'design',
+  voiceDescription: 'A clear, steady male voice with a calm and even tone.',
+  refText: 'Welcome! In this screencast we will walk through the key concepts.',
+  language: 'English',
+  cacheAudio: true,
+  cacheVoiceDesign: true,
+}))
+```
+
+The provider spawns a Python sidecar (PyTorch + `qwen-tts` + `flash-attn`)
+once per pipeline run. The deps are heavy (~5–8 GB on disk for PyTorch +
+flash-attn), so the recommended setup is **one shared venv reused across
+projects**, pointed at via `pythonBin`:
+
+```bash
+python3 -m venv ~/.venvs/playwright-recast
+~/.venvs/playwright-recast/bin/pip install -r node_modules/playwright-recast/dist/voiceover/providers/qwen-sidecar/requirements.txt
+```
+
+```typescript
+.voiceover(QwenTtsProvider({
+  mode: 'clone',
+  voiceSample: './my-voice.wav',
+  refText: 'Welcome! In this screencast we will walk through the key concepts.',
+  pythonBin: `${process.env.HOME}/.venvs/playwright-recast/bin/python3`,
+}))
+```
+
+Absolute `pythonBin` means no shell activation required — works in CI,
+cron jobs, and IDE runners alike.
+
+Requires a CUDA-capable GPU (~4–8 GB VRAM depending on model). `HF_TOKEN` in
+the environment if the chosen weights are gated.
+
+**Caching** — both flags default off:
+
+| Flag | What it caches | Hash includes |
+|---|---|---|
+| `cacheAudio` | Per-segment MP3s at `cacheDir/audio/<hash>.mp3` | target text, refText, ref-audio fingerprint, language, model, dtype |
+| `cacheVoiceDesign` (design mode only) | The design WAV at `cacheDir/design/<hash>.wav` | description, refText, language, designModel, dtype |
+
+`cacheDir` defaults to `./.recast-cache/voice/`. The cache grows unbounded;
+manage it yourself.
+
+**Defaults:** `cloneModel: 'Qwen/Qwen3-TTS-12Hz-0.6B-Base'`, `designModel: 'Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign'`, `device: 'cuda:0'`, `dtype: 'bfloat16'`, `language: 'English'`.
+
+### Loudness normalization
+
+TTS providers (especially ElevenLabs on `eleven_multilingual_v2` + non-English languages) can deliver segments at wildly different levels — one line at −16 LUFS, the next at −32 LUFS. Enable opt-in per-segment normalization to fix it:
+
+```typescript
+.voiceover(ElevenLabsProvider({ voice: 'daniel' }), { normalize: true })
+```
+
+This runs each synthesized segment through two-pass EBU R128 `loudnorm` before concat. Defaults: `−16 LUFS` integrated, `−1 dBFS` true peak, `11 LU` range, linear mode (preserves dynamics). Override any of them:
+
+```typescript
+.voiceover(provider, {
+  normalize: {
+    targetLufs: -18,
+    truePeakDb: -1.5,
+    lra: 11,
+    linear: true,
+  },
+})
+```
+
+Also exported standalone for external use:
+
+```typescript
+import { normalizeLoudness } from 'playwright-recast'
+await normalizeLoudness('input.mp3', 'output.mp3', { targetLufs: -16 })
+```
+
+---
+
+## Zoom
+
+Zoom into specific areas of the video during steps — focus the viewer's attention on the relevant UI element.
+
+### Auto-zoom from trace
+
+Automatically zoom into input elements (fill/type actions) detected from the Playwright trace. Zoom window follows the actual action duration — zooms in when the user starts typing, zooms out when they move on. Smooth fade transitions between zoom states.
+
+```typescript
+await Recast
+  .from('./traces')
+  .parse()
+  .subtitlesFromSrt('./narration.srt')
+  .autoZoom({
+    inputLevel: 1.4,    // zoom level for fill/type actions
+    clickLevel: 1.0,    // 1.0 = no zoom on clicks (default)
+    centerBias: 0.3,    // blend coordinates toward center (0–1)
+    containInCue: false, // keep transitions inside the cue window
+  })
+  .render({ format: 'mp4' })
+  .toFile('demo.mp4')
+```
+
+`autoZoom()` finds click/fill/type actions in the trace, extracts their cursor coordinates, and applies crop-and-scale zoom during the matching subtitle's time window. By default a cue's zoom-in starts `transitionMs` before the cue and its zoom-out ends `transitionMs` after it, which can overlap an adjacent cue. Set `containInCue: true` to keep both transitions inside the cue's own window; a cue shorter than twice `transitionMs` splits its time evenly between zoom-in and zoom-out with no hold. Off by default, because it changes how existing demos look.
+
+### Zoom from report data
+
+Apply zoom coordinates from an external source (e.g., a demo report with per-step zoom data):
+
+```typescript
+const reportSteps = [
+  { zoom: null },                            // Step 1: no zoom
+  { zoom: { x: 0.5, y: 0.8, level: 1.4 } }, // Step 2: zoom to input area
+  { zoom: null },                            // Step 3: no zoom
+  { zoom: { x: 0.78, y: 0.45, level: 1.3 }}, // Step 4: zoom to sidebar
+]
+
+await Recast
+  .from('./traces')
+  .parse()
+  .subtitlesFromSrt('./narration.srt')
+  .enrichZoomFromReport(reportSteps)
+  .render({ format: 'mp4' })
+  .toFile('demo.mp4')
+```
+
+### Zoom from step helpers
+
+Capture zoom coordinates during Playwright test execution using the `zoom()` helper:
+
+```typescript
+import { zoom } from 'playwright-recast'
+
+When('the user opens the sidebar', async ({ page }) => {
+  const sidebar = page.locator('.sidebar-panel')
+  await zoom(sidebar, 1.3) // Record zoom target for this step
+  await sidebar.click()
+})
+```
+
+The helper captures the element's bounding box as a Playwright annotation. Use `enrichZoomFromReport()` to apply these coordinates during video generation.
+
+### Zoom coordinates
+
+All zoom coordinates use viewport-relative fractions (0.0–1.0):
+
+| Field | Description | Default |
+|-------|-------------|---------|
+| `x` | Center X (0 = left, 1 = right) | 0.5 |
+| `y` | Center Y (0 = top, 1 = bottom) | 0.5 |
+| `level` | Zoom level (1.0 = no zoom, 2.0 = 2x) | 1.0 |
+
+The renderer applies zoom by cropping the video to `(width/level × height/level)` centered at `(x, y)`, then scaling back to the output resolution.
+
+---
+
+## Click Effect
+
+Highlight click actions with animated ripple effects and optional click sounds.
+
+```typescript
+await Recast
+  .from('./traces')
+  .parse()
+  .clickEffect({
+    color: '#3B82F6',    // Ripple color (hex, default: blue)
+    opacity: 0.5,        // Ripple opacity 0.0–1.0
+    radius: 30,          // Max radius in px (relative to 1080p)
+    duration: 400,       // Animation duration in ms
+    sound: true,         // true = bundled default, or path to custom audio
+    soundVolume: 0.8,    // Sound volume 0.0–1.0
+  })
+  .render({ format: 'mp4' })
+  .toFile('demo.mp4')
+```
+
+The click effect stage automatically detects `click` and `selectOption` actions from the Playwright trace. Timestamps are remapped through speed processing so ripples appear at the correct video time.
+
+To emphasise specific clicks, mark them in your test with the `click()` / `markClick()` helpers. A marker suppresses the matching auto-detected click (no duplicate ripple; nearest marker wins if several compete) and — with `cursorOverlay()` — gives it a held cursor approach over the painted target (`cursorOverlay({ approachMs })`, default 500ms).
+
+**Filtering clicks:**
+
+```typescript
+.clickEffect({
+  filter: (action) => action.method === 'click', // Only clicks, not selectOption
+})
+```
+
+**CLI:**
+```bash
+npx playwright-recast -i ./traces --click-effect
+npx playwright-recast -i ./traces --click-effect --click-sound click.mp3
+npx playwright-recast -i ./traces --click-effect-config config.json
+```
+
+---
+
+## Frame Interpolation
+
+Generate smooth intermediate frames from choppy browser recordings using ffmpeg's `minterpolate` filter.
+
+```typescript
+await Recast
+  .from('./traces')
+  .parse()
+  .interpolate({
+    fps: 60,              // Target FPS (default: 60)
+    mode: 'blend',        // 'dup' | 'blend' | 'mci' (default: 'mci')
+    quality: 'balanced',  // 'fast' | 'balanced' | 'quality' (default: 'balanced')
+    passes: 1,            // Multi-pass for smoother results (default: 1)
+  })
+  .render({ format: 'mp4' })
+  .toFile('demo.mp4')
+```
+
+### Modes
+
+| Mode | Speed | Quality | Description |
+|------|-------|---------|-------------|
+| `dup` | Instant | None | Duplicate frames to reach target FPS |
+| `blend` | Fast | Good | Linear crossfade between frames |
+| `mci` | Slow | Best | Motion-compensated interpolation (CPU-intensive, especially at 4K) |
+
+### Multi-pass
+
+With `passes: 2`, FPS is distributed geometrically across passes (e.g., 25fps -> 39fps -> 60fps). Each pass interpolates already-smoothed frames for a cleaner result.
+
+**CLI:**
+```bash
+npx playwright-recast -i ./traces --interpolate
+npx playwright-recast -i ./traces --interpolate --interpolate-fps 30
+npx playwright-recast -i ./traces --interpolate --interpolate-mode blend --interpolate-passes 2
+```
+
+---
+
+## Speed Processing
+
+The speed processor classifies every moment of the trace:
+
+| Activity | Default Speed | Description |
+|----------|---------------|-------------|
+| **User Action** | 1.0x | Clicks, fills, keyboard input — real-time |
+| **Navigation** | 2.0x | Page loads, redirects — slightly faster |
+| **Network Wait** | 2.0x | API calls in flight — compress wait time |
+| **Idle** | 4.0x | Nothing happening — skip quickly |
+
+```typescript
+.speedUp({
+  duringIdle: 4.0,
+  duringUserAction: 1.0,
+  duringNetworkWait: 2.0,
+  duringNavigation: 2.0,
+  minSegmentDuration: 500,  // Avoid jarring speed changes
+  maxSpeed: 8.0,            // Safety cap
+  exactBoundaries: false,   // sample at exact narration/hidden boundaries too
+})
+```
+
+`exactBoundaries` adds every narration-boundary and hidden-range timestamp to the fixed 100 ms sampling grid, so a narration scene shorter than one sample interval keeps its own segment instead of being swallowed by the surrounding grid cell. Off by default, because turning it on shifts segment boundaries for existing pipelines.
+
+---
+
+## Architecture
+
+```
+Trace.zip → ParsedTrace → FilteredTrace → SpeedMappedTrace → SubtitledTrace → VoiceoveredTrace → MP4
+               ↑               ↑                ↑                  ↑       ↑          ↑              ↑
+            parse()       hideSteps()        speedUp()         subtitles() textProcessing() voiceover()  render()
+```
+
+The pipeline is **lazy** — calling chain methods builds a pipeline description. Nothing executes until `.toFile()` or `.toBuffer()` is called.
+
+Each pipeline instance is **immutable** — every method returns a new pipeline, so you can branch:
+
+```typescript
+const base = Recast.from('./traces').parse().speedUp({ duringIdle: 3.0 })
+
+// Branch A: with voiceover
+await base.subtitlesFromSrt('./en.srt').voiceover(openai).render().toFile('demo-en.mp4')
+
+// Branch B: subtitles only
+await base.subtitlesFromSrt('./cs.srt').render({ burnSubtitles: true }).toFile('demo-cs.mp4')
+```
+
+---
+
+## Suite Videos
+
+One Playwright run, one video. Each test becomes a clip, clips are joined in **declaration order**, and the suite result is reflected in the output — failed tests get a card with the error, skipped tests get a card, and the video closes on a summary.
+
+### 1. Register the reporter
+
+```typescript
+// playwright.config.ts
+import { defineConfig } from '@playwright/test'
+
+export default defineConfig({
+  reporter: [
+    ['list'],
+    ['playwright-recast/reporter', { outputFile: '.recast/run.json' }],
+  ],
+  use: {
+    trace: 'on',   // required — `retain-on-failure` leaves passing tests with no trace
+    video: 'on',   // recommended — gives the renderer a full-rate source
+  },
+})
+```
+
+The reporter writes a run manifest and nothing else: which tests exist, in what order they are declared, how each one ended, and where its trace landed.
+
+### 2. Describe the suite
+
+```typescript
+// recast.config.ts
+import { defineSuite, Recast, OpenAIProvider } from 'playwright-recast'
+
+export default defineSuite({
+  name: 'Product walkthrough',
+  output: 'videos/walkthrough.mp4',
+  grep: /@video/,
+
+  // Called once per test. Return a Pipeline — recast runs it for you.
+  clip: test => Recast
+    .from(test.tracePath)
+    .parse()
+    .speedUp({ duringIdle: 3.0, duringUserAction: 1.0 })
+    .subtitlesFromTrace()
+    .voiceover(OpenAIProvider({ voice: 'nova' }))
+    .cursorOverlay()
+    .render({ resolution: '1080p' }),
+})
+```
+
+`clip` is the full fluent API, not a config subset — branch on `test.status`, `test.tags`, or `test.title` however you like, and return `null` to leave a test out.
+
+### 3. Render
+
+```bash
+# run the tests, then render — exits with Playwright's own exit code
+npx playwright-recast test -- --project=chromium --grep=@video
+
+# or render from a run you already have
+npx playwright-recast render-suite --manifest .recast/run.json -o videos/demo.mp4
+```
+
+A red suite stays red: the video is rendered whatever the tests did, but the process still exits with Playwright's status, so CI is not misled by a successful render.
+
+### Test authoring
+
+Nothing new to learn — the existing step helpers are the authoring API:
+
+```typescript
+import { test } from '@playwright/test'
+import { setupRecast, narrate, click, waitForNarration } from 'playwright-recast'
+
+setupRecast(test)
+
+test('creates a project', { tag: '@video' }, async ({ page }) => {
+  await narrate('The user starts by creating a new project.')
+  await click(page.getByRole('button', { name: 'New Project' }))
+  await waitForNarration()
+})
+```
+
+### Result behavior
+
+| Playwright result | Video behavior |
+| --- | --- |
+| Passed | The final attempt is rendered as a clip |
+| Failed | A card with the test name and first error line (configurable) |
+| Skipped | A short skipped card |
+| Retried | Only the final attempt is used |
+| No trace | A placeholder card, so the suite video still completes |
+| Clip render throws | Degrades to a card — one bad trace does not cost you the rest of the run |
+
+Tune it with `results`:
+
+```typescript
+export default defineSuite({
+  // ...
+  results: {
+    failures: 'clip+card',  // 'card' (default) | 'clip' | 'clip+card' | 'omit'
+    skipped: 'card',        // 'card' (default) | 'omit'
+    missingTrace: 'card',   // 'card' (default) | 'omit'
+    summary: true,          // closing summary card (default)
+  },
+})
+```
+
+A failure with nothing renderable always gets a card, whatever the policy — silently dropping a failed test would misrepresent the run.
+
+### Cards
+
+Cards are HTML screenshotted by headless Chromium, so they theme cleanly and inherit the resolution and frame rate of the rendered clips:
+
+```typescript
+cards: {
+  durationMs: 2500,
+  background: '#0f1115',
+  color: '#f5f7fa',
+  accent: '#ff5f56',
+  template: card => `<html>...${card.title}...</html>`,  // full override
+}
+```
+
+Chromium launches only if at least one card is actually needed.
+
+### Suite CLI options
+
+| Flag | Meaning |
+| --- | --- |
+| `-c, --config <path>` | Suite config (default: `./recast.config.ts`) |
+| `--manifest <path>` | Run manifest (default: `.recast/run.json`) |
+| `-o, --output <path>` | Output video (default: the config's `output`) |
+| `--keep-clips` | Keep the per-test clips for inspection |
+| `--inject-reporter` | Append the reporter to the `playwright test` command. Quick-start only — it replaces the reporters in `playwright.config.ts`. |
+
+> **TypeScript configs** need Node 22.18+ (native type stripping) or a loader such as `tsx`. A `recast.config.mjs` works everywhere.
+
+---
+
+## MCP Server
+
+playwright-recast includes an MCP (Model Context Protocol) server for AI-assisted video creation. Any MCP-compatible client (Claude Code, Cursor, etc.) can record browser sessions, analyze traces, and render polished videos through a conversational workflow.
+
+**Typical workflow:** `record_session` --> `analyze_trace` --> (edit voiceover text) --> `render_video`
+
+### Available Tools
+
+| Tool | Description |
+|------|-------------|
+| `record_session` | Opens a browser at a URL for interactive recording. Returns trace metadata. |
+| `analyze_trace` | Parses a trace and returns structured steps with timing and auto-detected hidden steps. |
+| `list_recordings` | Lists available trace recordings in a directory. |
+| `render_video` | Renders a polished video from steps with voiceover text, hidden flags, and full pipeline configuration. |
+
+### Configuration
+
+Add to your project's `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "recast": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "-p", "playwright-recast",
+        "-p", "@playwright/test",
+        "-p", "openai",
+        "-p", "@elevenlabs/elevenlabs-js",
+        "recast-mcp"
+      ],
+      "env": {
+        "OPENAI_API_KEY": "sk-...",
+        "RECAST_RESOLUTION": "1080p",
+        "RECAST_WORK_DIR": "."
+      }
+    }
+  }
+}
+```
+
+**Environment variables:**
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `OPENAI_API_KEY` | — | OpenAI API key (enables OpenAI TTS) |
+| `ELEVENLABS_API_KEY` | — | ElevenLabs API key (enables ElevenLabs TTS) |
+| `AWS_REGION` / `AWS_DEFAULT_REGION` | `us-east-1` | AWS region for Amazon Polly |
+| `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` | — | AWS credentials (also enables Polly auto-detect; IAM role on EC2/ECS/Lambda works without these) |
+| `RECAST_POLLY_ENGINE` | `neural` | Polly engine: `standard`, `neural`, `long-form`, `generative` |
+| `RECAST_TTS_PROVIDER` | auto-detected | Force `openai`, `elevenlabs`, `polly`, or `none` |
+| `RECAST_TTS_VOICE` | `nova` / `3HdFueVb2f3yUQzeEpyz` / `Joanna` | Default voice ID (provider-specific) |
+| `RECAST_RESOLUTION` | `4k` | Output resolution: `720p`, `1080p`, `1440p`, `4k` |
+| `RECAST_FPS` | `120` | Output FPS |
+| `RECAST_WORK_DIR` | `.` | Working directory for recordings |
+| `RECAST_INTRO_PATH` | — | Default intro video path |
+| `RECAST_OUTRO_PATH` | — | Default outro video path |
+| `RECAST_BACKGROUND_MUSIC` | — | Default background music path |
+
+TTS provider is auto-detected from available API keys when `RECAST_TTS_PROVIDER` is not set.
+
+---
+
+## Contributing
+
+Contributions welcome! Please check the [issues](https://github.com/ThePatriczek/playwright-recast/issues) for open tasks.
+
+```bash
+git clone https://github.com/ThePatriczek/playwright-recast.git
+cd playwright-recast
+npm install
+npm test
+```
+
+---
+
+## License
+
+MIT

@@ -1,0 +1,235 @@
+{
+  "results": [
+    {
+      "name": "init -> generate produces four real deliverables",
+      "status": "passed"
+    },
+    {
+      "name": "second standalone Chinese example exports the same four-part format",
+      "status": "passed"
+    },
+    {
+      "name": "moved offline pack: all three videos, cards, article and relative links work",
+      "status": "passed"
+    },
+    {
+      "name": "verifier detects omitted video and mismatched source provenance",
+      "status": "passed"
+    },
+    {
+      "name": "card references automatically capture steps; authored HTML remains inert",
+      "status": "passed"
+    },
+    {
+      "name": "social text overflow fails atomically with card-specific reason",
+      "status": "passed"
+    },
+    {
+      "name": "cancellation cleans partial kit at Exporting short video",
+      "status": "passed"
+    },
+    {
+      "name": "cancellation cleans partial kit at Rendering social cards",
+      "status": "passed"
+    },
+    {
+      "name": "cancellation cleans partial kit at Exporting social video",
+      "status": "failed",
+      "reason": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n2 !== 1\n\n    at failure (file:///D:/codexproject/github/tests/kit-integration.mjs:79:73)\n    at async file:///D:/codexproject/github/tests/kit-integration.mjs:98:19\n    at async test (file:///D:/codexproject/github/tests/kit-integration.mjs:15:8)\n    at async file:///D:/codexproject/github/tests/kit-integration.mjs:94:3"
+    },
+    {
+      "name": "media dependency disappearing during kit export leaves only failure",
+      "status": "passed"
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "starter",
+      "dir": "<workspace>/test-results\\kit-1789525622361\\starter\\2026-09-16T02-27-03-535Z-7c939f0e",
+      "media": {
+        "durationSeconds": 28.6,
+        "width": 1024,
+        "height": 720,
+        "encodedFps": 25,
+        "capturedFrames": 262,
+        "meanCaptureFps": 9.178971191410037,
+        "maxCaptureGapMs": 111.57480000000032,
+        "gif": {
+          "width": 720,
+          "fps": 8,
+          "seconds": 14,
+          "start": 3
+        },
+        "environment": {
+          "node": "v24.19.0",
+          "ffmpeg": "ffmpeg version 6.1.1-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers\r",
+          "ffprobe": "ffprobe version 4.0.2 Copyright (c) 2007-2018 the FFmpeg developers\r",
+          "chromium": "153.0.8010.12"
+        },
+        "captureWarnings": []
+      },
+      "deliverables": {
+        "version": 1,
+        "files": [
+          "short.mp4",
+          "social.mp4",
+          "project.md",
+          "project.html",
+          "social-caption.md",
+          "walkthrough.html",
+          "cards/01.png",
+          "cards/02.png",
+          "cards/03.png",
+          "cards/04.png"
+        ],
+        "clips": [
+          {
+            "step": 1,
+            "start": 0.5669598000000007,
+            "duration": 3
+          },
+          {
+            "step": 3,
+            "start": 8.959193500000001,
+            "duration": 3
+          },
+          {
+            "step": 4,
+            "start": 13.655914599999996,
+            "duration": 3
+          },
+          {
+            "step": 7,
+            "start": 25.436961699999998,
+            "duration": 3
+          }
+        ],
+        "cards": [
+          {
+            "step": 1,
+            "screenshot": "screenshots/step-01.jpg",
+            "file": "cards/01.png"
+          },
+          {
+            "step": 3,
+            "screenshot": "screenshots/step-03.jpg",
+            "file": "cards/02.png"
+          },
+          {
+            "step": 4,
+            "screenshot": "screenshots/step-04.jpg",
+            "file": "cards/03.png"
+          },
+          {
+            "step": 7,
+            "screenshot": "screenshots/step-07.jpg",
+            "file": "cards/04.png"
+          }
+        ],
+        "short": {
+          "durationSeconds": 12,
+          "width": 1024,
+          "height": 720,
+          "bytes": 134076
+        },
+        "social": {
+          "durationSeconds": 24,
+          "width": 1080,
+          "height": 1920,
+          "bytes": 321999
+        }
+      }
+    },
+    {
+      "name": "notes",
+      "dir": "<workspace>/test-results\\kit-1789525622361\\notes\\2026-09-16T02-27-40-862Z-a7f0f674",
+      "media": {
+        "durationSeconds": 21.16,
+        "width": 1024,
+        "height": 720,
+        "encodedFps": 25,
+        "capturedFrames": 195,
+        "meanCaptureFps": 9.225381040525805,
+        "maxCaptureGapMs": 113.29000000000087,
+        "gif": {
+          "width": 640,
+          "fps": 8,
+          "seconds": 12,
+          "start": 0
+        },
+        "environment": {
+          "node": "v24.19.0",
+          "ffmpeg": "ffmpeg version 6.1.1-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers\r",
+          "ffprobe": "ffprobe version 4.0.2 Copyright (c) 2007-2018 the FFmpeg developers\r",
+          "chromium": "153.0.8010.12"
+        },
+        "captureWarnings": []
+      },
+      "deliverables": {
+        "version": 1,
+        "files": [
+          "short.mp4",
+          "social.mp4",
+          "project.md",
+          "project.html",
+          "social-caption.md",
+          "walkthrough.html",
+          "cards/01.png",
+          "cards/02.png",
+          "cards/03.png"
+        ],
+        "clips": [
+          {
+            "step": 1,
+            "start": 0.03164330000000337,
+            "duration": 3
+          },
+          {
+            "step": 3,
+            "start": 7.395770400000002,
+            "duration": 3
+          },
+          {
+            "step": 4,
+            "start": 11.620054600000003,
+            "duration": 3
+          },
+          {
+            "step": 6,
+            "start": 18.0940625,
+            "duration": 3
+          }
+        ],
+        "cards": [
+          {
+            "step": 1,
+            "screenshot": "screenshots/step-01.jpg",
+            "file": "cards/01.png"
+          },
+          {
+            "step": 3,
+            "screenshot": "screenshots/step-03.jpg",
+            "file": "cards/02.png"
+          },
+          {
+            "step": 4,
+            "screenshot": "screenshots/step-04.jpg",
+            "file": "cards/03.png"
+          }
+        ],
+        "short": {
+          "durationSeconds": 12,
+          "width": 1024,
+          "height": 720,
+          "bytes": 128993
+        },
+        "social": {
+          "durationSeconds": 18,
+          "width": 1080,
+          "height": 1920,
+          "bytes": 235874
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "name": "build",
+    "exitCode": 0,
+    "seconds": 0.276,
+    "output": ""
+  },
+  {
+    "name": "typecheck",
+    "exitCode": 0,
+    "seconds": 0.3,
+    "output": ""
+  },
+  {
+    "name": "unit",
+    "exitCode": 0,
+    "seconds": 0.403,
+    "output": "✔ validates defaults and Chinese captions (4.4834ms)\n✔ rejects unknown actions, malformed locators and unsafe durations (4.8954ms)\n✔ text cannot inject HTML or README images (0.3725ms)\n✔ config validation names the invalid field without launching a browser (15.5898ms)\n✔ verifier detects missing files and altered bytes (62.4714ms)\n✔ verifier rejects manifest traversal before reading referenced paths (5.4419ms)\n✔ root snippet prefixes all local image and download links (8.9268ms)\n✔ preview supports HEAD, suffix ranges, invalid ranges and method rejection (74.111ms)\nℹ tests 8\nℹ suites 0\nℹ pass 8\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 310.8537\n"
+  },
+  {
+    "name": "integration",
+    "exitCode": 0,
+    "seconds": 13.092,
+    "output": "Step 1/1: click — 缺失元素\nPASS missing element reports exact step and never emits successful media\nPASS missing media dependency gives actionable failure\nPASS missing ffprobe and Chromium have actionable doctor errors\nPASS cancel during recording cleans partial files\nPASS cancel during encoding terminates export and cleans partial files\nStep 1/4: fill — 中文字幕与虚构数据\nStep 2/4: click — 保存本地便签\nStep 3/4: wait — 已经保存\nStep 4/4: screenshot — 查看保存结果\nExporting MP4…\nExporting GIF…\nSUCCESS <workspace>/test-results\\integration-1789521537396\\中文 产物\\2026-09-16T01-19-02-678Z-f2f74972\nPASS Chinese input/output paths and Unicode captions export playable media\nPASS moved offline file:// preview, media playback and relative README images\nPASS preview serves byte ranges and does not escape its root\nPASS init protects existing directories and generated starter works\nEvidence: <workspace>/test-results\\integration-1789521537396\n"
+  },
+  {
+    "name": "acceptance",
+    "exitCode": 0,
+    "seconds": 45.394,
+    "output": "First export seconds (dependencies preinstalled): 33.96\nPASS Fresh CLI init to full 20–40 second playable pack\nStep 1/2: click — Save\nStep 2/2: wait — Saved result\nExporting MP4…\nExporting GIF…\nSUCCESS <workspace>/test-results\\acceptance-1789521550513\\hidden-output\\2026-09-16T01-19-44-495Z-eb0c705a\nPASS Wait for visible text ignores an earlier hidden duplicate\nStep 1/2: open — Next page\nStep 2/2: wait — Confirmed\nExporting MP4…\nExporting GIF…\nSUCCESS <workspace>/test-results\\acceptance-1789521550513\\repeat-output\\2026-09-16T01-19-47-104Z-95e6c70a\nStep 1/2: open — Next page\nStep 2/2: wait — Confirmed\nExporting MP4…\nExporting GIF…\nSUCCESS <workspace>/test-results\\acceptance-1789521550513\\repeat-output\\2026-09-16T01-19-49-491Z-773fc83c\nPASS Relative open navigation, repeat export and previous files preserved\nStep 1/1: screenshot — 很长的中文字幕很长的中文字幕很长的中文字幕很长的中文字幕很长的中文字幕很长的中文字幕很长的中文字幕很长的中文字幕很长的中文字幕很长的中文字幕很长的中文字幕很长的中文字幕很长的中文字幕很长的中文字幕很长的中文字幕\nPASS caption-overflow fails without success media\nStep 1/1: screenshot — Short clip\nExporting MP4…\nPASS invalid-gif fails without success media\nStep 1/1: open — Missing page\nPASS http-error fails without success media\nEvidence: <workspace>/test-results\\acceptance-1789521550513\n"
+  },
+  {
+    "name": "cli",
+    "exitCode": 0,
+    "seconds": 4.402,
+    "output": "[\n  {\n    name: 'validate works without media/browser dependencies',\n    status: 'passed'\n  },\n  { name: 'verify and root README snippet CLI', status: 'passed' },\n  { name: 'occupied port has an actionable error', status: 'passed' },\n  {\n    name: 'port zero produces a reachable URL; preview remains alive',\n    status: 'passed'\n  },\n  {\n    name: 'missing preview index and malformed JSON are actionable',\n    status: 'passed'\n  }\n]\n<workspace>/test-results\\cli-1789521595532\n"
+  },
+  {
+    "name": "ui",
+    "exitCode": 0,
+    "seconds": 1.898,
+    "output": "[\n  { width: 320, status: 'passed' },\n  { width: 375, status: 'passed' },\n  { width: 768, status: 'passed' },\n  { width: 1280, status: 'passed' }\n]\n<workspace>/test-results\\ui-1789521600312\n"
+  },
+  {
+    "name": "edges",
+    "exitCode": 0,
+    "seconds": 7.635,
+    "output": "Step 1/2: click — Start\nStep 2/2: wait — Ready\nExporting MP4…\nExporting GIF…\nSUCCESS <workspace>/test-results\\edges-1789521602211\\delayed\\2026-09-16T01-20-02-238Z-e0f809c8\nStep 1/1: screenshot — Readable caption\nExporting MP4…\nExporting GIF…\nSUCCESS <workspace>/test-results\\edges-1789521602211\\narrow\\2026-09-16T01-20-05-730Z-58ac5cde\nNarrow visual: <workspace>/test-results\\edges-1789521602211\\narrow\\2026-09-16T01-20-05-730Z-58ac5cde\n[\n  {\n    name: 'Delayed element wait and fresh screenshot timestamp',\n    status: 'passed'\n  },\n  {\n    name: 'Minimum viewport/padding, long title, low capture cadence',\n    status: 'passed'\n  },\n  {\n    name: 'Cancellation during GIF encoding leaves diagnostics only',\n    status: 'passed'\n  }\n]\n<workspace>/test-results\\edges-1789521602211\n"
+  },
+  {
+    "name": "artifacts",
+    "exitCode": 0,
+    "seconds": 6.472,
+    "output": "{\"name\":\"showcase\",\"runId\":\"2026-09-16T01-16-36-480Z-55dee647\",\"mp4\":{\"seconds\":28.64,\"width\":1024,\"height\":720,\"bytes\":306631},\"gif\":{\"seconds\":14.01,\"width\":720,\"height\":506,\"bytes\":522128},\"meanCaptureFps\":9.166806655816783,\"maxCaptureGapMs\":111.74530000000232,\"hashes\":\"passed\",\"fullDecode\":\"passed\",\"movedOfflinePlayback\":\"passed\",\"externalRequests\":0,\"readmeImages\":\"passed\",\"previewCaptionsMatchManifest\":\"passed\"}\n{\"name\":\"showcase-zh\",\"runId\":\"2026-09-16T01-17-35-384Z-6d35bee5\",\"mp4\":{\"seconds\":21.16,\"width\":1024,\"height\":720,\"bytes\":189577},\"gif\":{\"seconds\":12.01,\"width\":640,\"height\":450,\"bytes\":215484},\"meanCaptureFps\":9.142400918780028,\"maxCaptureGapMs\":111.78219999999965,\"hashes\":\"passed\",\"fullDecode\":\"passed\",\"movedOfflinePlayback\":\"passed\",\"externalRequests\":0,\"readmeImages\":\"passed\",\"previewCaptionsMatchManifest\":\"passed\"}\n{\"name\":\"self-showcase\",\"runId\":\"2026-09-16T01-17-59-940Z-36439b17\",\"mp4\":{\"seconds\":27.92,\"width\":1184,\"height\":900,\"bytes\":581070},\"gif\":{\"seconds\":14.01,\"width\":800,\"height\":608,\"bytes\":774525},\"meanCaptureFps\":9.14539868040361,\"maxCaptureGapMs\":112.19859999999971,\"hashes\":\"passed\",\"fullDecode\":\"passed\",\"movedOfflinePlayback\":\"passed\",\"externalRequests\":0,\"readmeImages\":\"passed\",\"previewCaptionsMatchManifest\":\"passed\"}\nEvidence: <workspace>/test-results\\artifact-review-1789521609765\n"
+  }
+]

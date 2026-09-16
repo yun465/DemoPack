@@ -1,0 +1,22 @@
+[
+  {
+    "name": "validate works without media/browser dependencies",
+    "status": "passed"
+  },
+  {
+    "name": "verify and root README snippet CLI",
+    "status": "passed"
+  },
+  {
+    "name": "occupied port has an actionable error",
+    "status": "passed"
+  },
+  {
+    "name": "port zero produces a reachable URL; preview remains alive",
+    "status": "passed"
+  },
+  {
+    "name": "missing preview index and malformed JSON are actionable",
+    "status": "passed"
+  }
+]

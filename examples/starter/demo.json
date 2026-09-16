@@ -1,0 +1,119 @@
+{
+  "title": "启航 · 把发布任务整理清楚",
+  "url": "./index.html",
+  "viewport": {
+    "width": 960,
+    "height": 540
+  },
+  "gif": {
+    "width": 720,
+    "fps": 8,
+    "seconds": 14,
+    "start": 3
+  },
+  "steps": [
+    {
+      "action": "open",
+      "caption": "打开发布看板，查看当前待完成的任务。",
+      "holdMs": 3000,
+      "screenshot": true
+    },
+    {
+      "action": "fill",
+      "selector": "#task",
+      "value": "为项目准备演示材料",
+      "caption": "填写一条新任务：为项目准备演示材料。",
+      "holdMs": 3500
+    },
+    {
+      "action": "click",
+      "selector": "#add button",
+      "caption": "点击添加，任务立即进入待完成列表。",
+      "holdMs": 3500,
+      "screenshot": true
+    },
+    {
+      "action": "click",
+      "selector": "#todo .card:last-child button",
+      "caption": "完成演示任务，看看板如何更新进展。",
+      "holdMs": 4000,
+      "zoom": 1.15,
+      "screenshot": true
+    },
+    {
+      "action": "click",
+      "selector": "#todo .card:first-child button",
+      "caption": "继续完成更新说明，整理本次发布的成果。",
+      "holdMs": 3500
+    },
+    {
+      "action": "wait",
+      "text": "已完成 3 / 4",
+      "caption": "确认已完成三项任务，数字与实际状态一致。",
+      "holdMs": 3000
+    },
+    {
+      "action": "screenshot",
+      "caption": "保留最终画面，用于项目介绍和使用教程。",
+      "holdMs": 3500
+    }
+  ],
+  "release": {
+    "short": {
+      "steps": [
+        1,
+        3,
+        4,
+        7
+      ],
+      "secondsPerStep": 3
+    },
+    "social": {
+      "secondsPerCard": 6,
+      "cards": [
+        {
+          "step": 1,
+          "title": "离发布，再近一步",
+          "body": "把待完成的任务放在一起，先看清当前进展。"
+        },
+        {
+          "step": 3,
+          "title": "一条任务，即时加入",
+          "body": "填写内容并添加，结果来自本次真实浏览器运行。"
+        },
+        {
+          "step": 4,
+          "title": "完成之后，进展可见",
+          "body": "任务移入已就绪列表，完成数量同步变化。"
+        },
+        {
+          "step": 7,
+          "title": "把结果整理成材料",
+          "body": "视频、图文与项目说明，来自同一份演示。"
+        }
+      ]
+    },
+    "project": {
+      "summary": "启航是一个虚构的本地发布看板，用来演示 DemoPack 的完整材料导出。",
+      "sections": [
+        {
+          "heading": "可以做什么",
+          "body": "添加发布任务，将完成的任务移入已就绪列表，并查看完成数量。页面不需要账号或网络服务。"
+        },
+        {
+          "heading": "如何操作",
+          "body": "在输入框填写任务，点击添加任务，再点击任务右侧的完成按钮。演示使用虚构数据。"
+        },
+        {
+          "heading": "材料如何生成",
+          "body": "DemoPack 执行一次真实浏览器流程，导出完整视频、重点短片、竖屏图文视频和本篇项目介绍。说明由作者填写。"
+        },
+        {
+          "heading": "当前限制",
+          "body": "看板是本地示例，不保存跨会话数据。材料无配音或音乐，项目说明不由模型自动生成。"
+        }
+      ]
+    },
+    "socialCaption": "做了一个本地发布看板示例：添加任务、标记完成，再把这段流程整理成四份演示材料。全部使用虚构数据。\n\n#开源项目 #产品演示 #开发工具"
+  }
+}

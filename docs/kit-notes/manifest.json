@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "runId": "2026-09-16T02-27-40-862Z-a7f0f674",
+  "title": "小笺：记录与整理灵感",
+  "events": [
+    {
+      "index": 0,
+      "action": "open",
+      "caption": "打开本地便签，所有示例内容均为虚构。",
+      "startMs": 0.4403999999994994,
+      "endMs": 3031.6433000000034,
+      "screenshot": "screenshots/step-01.jpg",
+      "screenshotAtMs": 2930.354800000001
+    },
+    {
+      "index": 1,
+      "action": "fill",
+      "caption": "输入一条想法：为开源项目准备演示。",
+      "startMs": 3031.6728999999978,
+      "endMs": 6693.488400000002
+    },
+    {
+      "index": 2,
+      "action": "click",
+      "caption": "保存后，新便签立即出现在列表中。",
+      "startMs": 6693.507599999997,
+      "endMs": 10395.770400000001,
+      "screenshot": "screenshots/step-03.jpg",
+      "screenshotAtMs": 10296.842799999999
+    },
+    {
+      "index": 3,
+      "action": "click",
+      "caption": "把重要想法置顶，方便下次继续。",
+      "startMs": 10395.8105,
+      "endMs": 14620.054600000003,
+      "screenshot": "screenshots/step-04.jpg",
+      "screenshotAtMs": 14504.673300000002
+    },
+    {
+      "index": 4,
+      "action": "wait",
+      "caption": "确认操作结果，中文说明与实际页面同步。",
+      "startMs": 14620.0942,
+      "endMs": 17550.9254
+    },
+    {
+      "index": 5,
+      "action": "screenshot",
+      "caption": "同一次运行，留下可放入教程的关键画面。",
+      "startMs": 17550.9404,
+      "endMs": 21094.0625,
+      "screenshot": "screenshots/step-06.jpg",
+      "screenshotAtMs": 21028.134100000003
+    }
+  ],
+  "media": {
+    "durationSeconds": 21.16,
+    "width": 1024,
+    "height": 720,
+    "encodedFps": 25,
+    "capturedFrames": 195,
+    "meanCaptureFps": 9.225381040525805,
+    "maxCaptureGapMs": 113.29000000000087,
+    "gif": {
+      "width": 640,
+      "fps": 8,
+      "seconds": 12,
+      "start": 0
+    },
+    "environment": {
+      "node": "v24.19.0",
+      "ffmpeg": "ffmpeg version 6.1.1-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers\r",
+      "ffprobe": "ffprobe version 4.0.2 Copyright (c) 2007-2018 the FFmpeg developers\r",
+      "chromium": "153.0.8010.12"
+    },
+    "captureWarnings": []
+  },
+  "files": [
+    {
+      "path": "demo.mp4",
+      "bytes": 200820,
+      "sha256": "4e858955d9c65a7df5c5e53fbfb260d7eb2d3f54100c44a82d456dbf84e61958"
+    },
+    {
+      "path": "demo.gif",
+      "bytes": 250762,
+      "sha256": "deb5560d9266f96d8eb08be516b284ace4924a1a9e8d9d3ad43b3d5e4ae39cc0"
+    },
+    {
+      "path": "cover.jpg",
+      "bytes": 62019,
+      "sha256": "e55cb3db96664dc83f7c2232aedc80010698ac3fa5d3326219cc22140f1ac980"
+    },
+    {
+      "path": "README-snippet.md",
+      "bytes": 755,
+      "sha256": "da6d2c9d53c406b5fdbf26709f1bd339d3047c814b9e665c13614e77793d121b"
+    },
+    {
+      "path": "index.html",
+      "bytes": 4819,
+      "sha256": "29d6f5c53d860ba57cde2a9e6f3a0806158309be21350b443414e8d12e25d8ea"
+    },
+    {
+      "path": "screenshots/step-01.jpg",
+      "bytes": 62019,
+      "sha256": "e55cb3db96664dc83f7c2232aedc80010698ac3fa5d3326219cc22140f1ac980"
+    },
+    {
+      "path": "screenshots/step-03.jpg",
+      "bytes": 65277,
+      "sha256": "5dc893ac39bedb349254c0f04c6f9afa1fa567e60dc759400bad45a74448bebe"
+    },
+    {
+      "path": "screenshots/step-04.jpg",
+      "bytes": 68720,
+      "sha256": "00282512ee226b4d9c7b751126571696ba473e042ceba2ce5d3a91fad1a17668"
+    },
+    {
+      "path": "screenshots/step-06.jpg",
+      "bytes": 69378,
+      "sha256": "92c0f442113135037309a0c2ac4793aa9807a96bbf34d3b928291917603f0f73"
+    },
+    {
+      "path": "short.mp4",
+      "bytes": 128993,
+      "sha256": "ac799a14982ce73a6e46009cab69d604592c6baa3b6edaf8fcfb5c7fa82eb7b3"
+    },
+    {
+      "path": "social.mp4",
+      "bytes": 235874,
+      "sha256": "cde15584ebfda7ca29a89f77952839bbf38922f6ee214064fcec190e7e645dcf"
+    },
+    {
+      "path": "project.md",
+      "bytes": 407,
+      "sha256": "e86240b89e231727a2ff9b1a5ea0012bdf5069902ad2fd8baab8ba5f0b5137f5"
+    },
+    {
+      "path": "project.html",
+      "bytes": 2691,
+      "sha256": "e9065f9edc009f4a0a70ff7e596d63ff823b7cf4733c33dfc4ebf7f9878f52c8"
+    },
+    {
+      "path": "social-caption.md",
+      "bytes": 326,
+      "sha256": "a8512826515dddfdbcbb3c12b43ae05ee2bce64d0fb4a1977cc87ea48499e7a5"
+    },
+    {
+      "path": "walkthrough.html",
+      "bytes": 7159,
+      "sha256": "497a460c649eb0e5c636f8767e167e693af2b3a8139fcd754e78e5e4eca6caa4"
+    },
+    {
+      "path": "cards/01.png",
+      "bytes": 199235,
+      "sha256": "5827476c72c5978b4330d81456ec3d168a6aed8bcd9ea5446b2a3867bb63d7a1"
+    },
+    {
+      "path": "cards/02.png",
+      "bytes": 210014,
+      "sha256": "3862094a4f58efee8842c3e01a6736ed8744919d408ef53886974b034e2d14e7"
+    },
+    {
+      "path": "cards/03.png",
+      "bytes": 222200,
+      "sha256": "6459a2dde8ac0434cc946939f963bb90a9dcc04d285167ad68cb650bdf578acd"
+    }
+  ],
+  "deliverables": {
+    "version": 1,
+    "files": [
+      "short.mp4",
+      "social.mp4",
+      "project.md",
+      "project.html",
+      "social-caption.md",
+      "walkthrough.html",
+      "cards/01.png",
+      "cards/02.png",
+      "cards/03.png"
+    ],
+    "clips": [
+      {
+        "step": 1,
+        "start": 0.03164330000000337,
+        "duration": 3
+      },
+      {
+        "step": 3,
+        "start": 7.395770400000002,
+        "duration": 3
+      },
+      {
+        "step": 4,
+        "start": 11.620054600000003,
+        "duration": 3
+      },
+      {
+        "step": 6,
+        "start": 18.0940625,
+        "duration": 3
+      }
+    ],
+    "cards": [
+      {
+        "step": 1,
+        "screenshot": "screenshots/step-01.jpg",
+        "file": "cards/01.png"
+      },
+      {
+        "step": 3,
+        "screenshot": "screenshots/step-03.jpg",
+        "file": "cards/02.png"
+      },
+      {
+        "step": 4,
+        "screenshot": "screenshots/step-04.jpg",
+        "file": "cards/03.png"
+      }
+    ],
+    "short": {
+      "durationSeconds": 12,
+      "width": 1024,
+      "height": 720,
+      "bytes": 128993
+    },
+    "social": {
+      "durationSeconds": 18,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 235874
+    }
+  }
+}

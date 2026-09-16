@@ -1,0 +1,191 @@
+[
+  {
+    "id": "demopack-local@0.1.0",
+    "name": "demopack-local",
+    "version": "0.1.0",
+    "size": 44777,
+    "unpackedSize": 178594,
+    "shasum": "cb37362ed3dd8690145363f6476d3fbf998c16e0",
+    "integrity": "sha512-+eNmbV8LcKGW5Mc0Bd6z6NZ55imQ26SaKiRSAck/rPcL+VQOK7Pi5RqvzgmIOQg1a8WwgCr94z4rsjIFhId71g==",
+    "filename": "demopack-local-0.1.0.tgz",
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 1078,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 7284,
+        "mode": 420
+      },
+      {
+        "path": "README.zh-CN.md",
+        "size": 6679,
+        "mode": 420
+      },
+      {
+        "path": "THIRD_PARTY_NOTICES.md",
+        "size": 2259,
+        "mode": 420
+      },
+      {
+        "path": "demo.schema.json",
+        "size": 9313,
+        "mode": 420
+      },
+      {
+        "path": "dist/bundle.d.ts",
+        "size": 669,
+        "mode": 420
+      },
+      {
+        "path": "dist/bundle.js",
+        "size": 3879,
+        "mode": 420
+      },
+      {
+        "path": "dist/capture.d.ts",
+        "size": 552,
+        "mode": 420
+      },
+      {
+        "path": "dist/capture.js",
+        "size": 18720,
+        "mode": 420
+      },
+      {
+        "path": "dist/cli.d.ts",
+        "size": 31,
+        "mode": 420
+      },
+      {
+        "path": "dist/cli.js",
+        "size": 6106,
+        "mode": 420
+      },
+      {
+        "path": "dist/config.d.ts",
+        "size": 2648,
+        "mode": 420
+      },
+      {
+        "path": "dist/config.js",
+        "size": 2666,
+        "mode": 420
+      },
+      {
+        "path": "dist/process.d.ts",
+        "size": 215,
+        "mode": 420
+      },
+      {
+        "path": "dist/process.js",
+        "size": 1860,
+        "mode": 420
+      },
+      {
+        "path": "dist/release.d.ts",
+        "size": 1767,
+        "mode": 420
+      },
+      {
+        "path": "dist/release.js",
+        "size": 3746,
+        "mode": 420
+      },
+      {
+        "path": "dist/server.d.ts",
+        "size": 128,
+        "mode": 420
+      },
+      {
+        "path": "dist/server.js",
+        "size": 4171,
+        "mode": 420
+      },
+      {
+        "path": "docs/licenses/playwright-core-LICENSE",
+        "size": 11601,
+        "mode": 420
+      },
+      {
+        "path": "docs/licenses/playwright-core-NOTICE",
+        "size": 254,
+        "mode": 420
+      },
+      {
+        "path": "docs/licenses/playwright-LICENSE",
+        "size": 11601,
+        "mode": 420
+      },
+      {
+        "path": "docs/licenses/playwright-NOTICE",
+        "size": 254,
+        "mode": 420
+      },
+      {
+        "path": "docs/licenses/prettier-LICENSE",
+        "size": 1065,
+        "mode": 420
+      },
+      {
+        "path": "docs/licenses/types-node-LICENSE",
+        "size": 1141,
+        "mode": 420
+      },
+      {
+        "path": "docs/licenses/typescript-LICENSE",
+        "size": 9197,
+        "mode": 420
+      },
+      {
+        "path": "docs/licenses/typescript-win32-x64-LICENSE",
+        "size": 9197,
+        "mode": 420
+      },
+      {
+        "path": "docs/licenses/typescript-win32-x64-NOTICE.txt",
+        "size": 48860,
+        "mode": 420
+      },
+      {
+        "path": "docs/licenses/undici-types-LICENSE",
+        "size": 1090,
+        "mode": 420
+      },
+      {
+        "path": "docs/licenses/zod-LICENSE",
+        "size": 1072,
+        "mode": 420
+      },
+      {
+        "path": "examples/launch/demo.json",
+        "size": 1120,
+        "mode": 420
+      },
+      {
+        "path": "examples/launch/index.html",
+        "size": 3686,
+        "mode": 420
+      },
+      {
+        "path": "examples/中文便签/demo.json",
+        "size": 994,
+        "mode": 420
+      },
+      {
+        "path": "examples/中文便签/index.html",
+        "size": 2502,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 1189,
+        "mode": 420
+      }
+    ],
+    "entryCount": 35,
+    "bundled": []
+  }
+]

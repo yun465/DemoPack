@@ -1,0 +1,15 @@
+node_modules/
+dist/
+output/
+.tools/
+test-results/
+*.tgz
+.env*
+
+# Private project demonstrations and local-only investigation records.
+docs/innovation*/
+examples/innovation*/
+scripts/innovation-four-deliverables.mjs
+tests/review-innovation.mjs
+docs/superpowers/
+docs/evidence/innovation*/

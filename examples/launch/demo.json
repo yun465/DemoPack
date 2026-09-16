@@ -1,0 +1,15 @@
+{
+ "title":"Orbit — from release checklist to ready",
+ "url":"./index.html",
+ "viewport":{"width":960,"height":540},
+ "gif":{"width":720,"fps":8,"seconds":14,"start":3},
+ "steps":[
+  {"action":"open","caption":"Start with a small, focused release checklist.","holdMs":3000,"screenshot":true},
+  {"action":"fill","selector":"#task","value":"Record a short project demo","caption":"Add the work that makes your release easier to share.","holdMs":3500},
+  {"action":"click","selector":"#add button","caption":"One click adds a new task to the board.","holdMs":3500,"screenshot":true},
+  {"action":"click","selector":"#todo .card:last-child button","caption":"Mark the demo ready when the work is done.","holdMs":4000,"zoom":1.15,"screenshot":true},
+  {"action":"click","selector":"#todo .card:first-child button","caption":"Finish the changelog and keep the release moving.","holdMs":3500},
+  {"action":"wait","text":"3 of 4 ready","caption":"The release summary reflects the actual board state.","holdMs":3000},
+  {"action":"screenshot","caption":"A clear final state, ready for the project README.","holdMs":3500}
+ ]
+}

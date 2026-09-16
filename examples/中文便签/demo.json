@@ -1,0 +1,97 @@
+{
+  "title": "小笺：记录与整理灵感",
+  "url": "./index.html",
+  "theme": {
+    "background": "#272034",
+    "accent": "#dcb5ff",
+    "padding": 32
+  },
+  "steps": [
+    {
+      "action": "open",
+      "caption": "打开本地便签，所有示例内容均为虚构。",
+      "holdMs": 2500,
+      "screenshot": true
+    },
+    {
+      "action": "fill",
+      "selector": "#content",
+      "value": "为我的开源项目录一段演示。",
+      "caption": "输入一条想法：为开源项目准备演示。",
+      "holdMs": 3000
+    },
+    {
+      "action": "click",
+      "selector": "form button",
+      "caption": "保存后，新便签立即出现在列表中。",
+      "holdMs": 3000,
+      "screenshot": true
+    },
+    {
+      "action": "click",
+      "selector": ".note:last-child button",
+      "caption": "把重要想法置顶，方便下次继续。",
+      "zoom": 1.2,
+      "holdMs": 3500,
+      "screenshot": true
+    },
+    {
+      "action": "wait",
+      "text": "重要的想法已经置顶",
+      "caption": "确认操作结果，中文说明与实际页面同步。",
+      "holdMs": 2500
+    },
+    {
+      "action": "screenshot",
+      "caption": "同一次运行，留下可放入教程的关键画面。",
+      "holdMs": 3000
+    }
+  ],
+  "release": {
+    "short": {
+      "steps": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "secondsPerStep": 3
+    },
+    "social": {
+      "cards": [
+        {
+          "step": 1,
+          "title": "留住一条想法",
+          "body": "一个无需登录的本地便签示例。"
+        },
+        {
+          "step": 3,
+          "title": "写下之后，立即保存",
+          "body": "新便签出现在列表里，页面结果与说明一致。"
+        },
+        {
+          "step": 4,
+          "title": "重要的事，放在前面",
+          "body": "将想法置顶，方便继续整理。"
+        }
+      ]
+    },
+    "project": {
+      "summary": "小笺是用于演示中文输入、保存与置顶的本地网页。",
+      "sections": [
+        {
+          "heading": "主要功能",
+          "body": "输入一条想法，保存到列表，并把重要便签置顶。"
+        },
+        {
+          "heading": "使用方式",
+          "body": "打开网页，填写输入框后保存，再点击便签的置顶按钮。无需登录。"
+        },
+        {
+          "heading": "示例边界",
+          "body": "这是虚构数据的本地演示，不是云笔记服务。项目文字由作者填写。"
+        }
+      ]
+    }
+  }
+}

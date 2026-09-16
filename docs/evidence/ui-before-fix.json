@@ -1,0 +1,19 @@
+[
+  {
+    "width": 320,
+    "status": "failed",
+    "reason": "width 320: content 348px exceeds viewport"
+  },
+  {
+    "width": 375,
+    "status": "passed"
+  },
+  {
+    "width": 768,
+    "status": "passed"
+  },
+  {
+    "width": 1280,
+    "status": "passed"
+  }
+]

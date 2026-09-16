@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "runId": "2026-09-16T02-27-03-535Z-7c939f0e",
+  "title": "启航 · 把发布任务整理清楚",
+  "events": [
+    {
+      "index": 0,
+      "action": "open",
+      "caption": "打开发布看板，查看当前待完成的任务。",
+      "startMs": 0.2696000000000822,
+      "endMs": 3566.9598000000005,
+      "screenshot": "screenshots/step-01.jpg",
+      "screenshotAtMs": 3498.9712
+    },
+    {
+      "index": 1,
+      "action": "fill",
+      "caption": "填写一条新任务：为项目准备演示材料。",
+      "startMs": 3567.0258000000003,
+      "endMs": 7740.8607999999995
+    },
+    {
+      "index": 2,
+      "action": "click",
+      "caption": "点击添加，任务立即进入待完成列表。",
+      "startMs": 7740.872,
+      "endMs": 11959.193500000001,
+      "screenshot": "screenshots/step-03.jpg",
+      "screenshotAtMs": 11878.5216
+    },
+    {
+      "index": 3,
+      "action": "click",
+      "caption": "完成演示任务，看看板如何更新进展。",
+      "startMs": 11959.259600000001,
+      "endMs": 16655.914599999996,
+      "screenshot": "screenshots/step-04.jpg",
+      "screenshotAtMs": 16543.271099999998
+    },
+    {
+      "index": 4,
+      "action": "click",
+      "caption": "继续完成更新说明，整理本次发布的成果。",
+      "startMs": 16655.9295,
+      "endMs": 20861.978099999997
+    },
+    {
+      "index": 5,
+      "action": "wait",
+      "caption": "确认已完成三项任务，数字与实际状态一致。",
+      "startMs": 20862.000999999997,
+      "endMs": 24395.761199999997
+    },
+    {
+      "index": 6,
+      "action": "screenshot",
+      "caption": "保留最终画面，用于项目介绍和使用教程。",
+      "startMs": 24395.774199999996,
+      "endMs": 28436.961699999996,
+      "screenshot": "screenshots/step-07.jpg",
+      "screenshotAtMs": 28324.854099999997
+    }
+  ],
+  "media": {
+    "durationSeconds": 28.6,
+    "width": 1024,
+    "height": 720,
+    "encodedFps": 25,
+    "capturedFrames": 262,
+    "meanCaptureFps": 9.178971191410037,
+    "maxCaptureGapMs": 111.57480000000032,
+    "gif": {
+      "width": 720,
+      "fps": 8,
+      "seconds": 14,
+      "start": 3
+    },
+    "environment": {
+      "node": "v24.19.0",
+      "ffmpeg": "ffmpeg version 6.1.1-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers\r",
+      "ffprobe": "ffprobe version 4.0.2 Copyright (c) 2007-2018 the FFmpeg developers\r",
+      "chromium": "153.0.8010.12"
+    },
+    "captureWarnings": []
+  },
+  "files": [
+    {
+      "path": "demo.mp4",
+      "bytes": 275085,
+      "sha256": "94530f1293f57fb0c165ca57411951630a419bb3ce4697e20a50b71758788bb3"
+    },
+    {
+      "path": "demo.gif",
+      "bytes": 446186,
+      "sha256": "eb324f7bb03e21d704db70e988ae304e4c44a17b41da3c846e877186f200b0f9"
+    },
+    {
+      "path": "cover.jpg",
+      "bytes": 70842,
+      "sha256": "42c2e05ddae5e980095ad8b06d734647c57adc97793e626c129fbbf160a0a205"
+    },
+    {
+      "path": "README-snippet.md",
+      "bytes": 844,
+      "sha256": "893a12fc2a3dbb305c493aa235cbd7d9c946142718b6db1ce15347ed8f98e036"
+    },
+    {
+      "path": "index.html",
+      "bytes": 4967,
+      "sha256": "c85ac6d5f110d19392808f413d96ce465de1e5d7a7e19f0fa1a12907e834efc1"
+    },
+    {
+      "path": "screenshots/step-01.jpg",
+      "bytes": 70842,
+      "sha256": "42c2e05ddae5e980095ad8b06d734647c57adc97793e626c129fbbf160a0a205"
+    },
+    {
+      "path": "screenshots/step-03.jpg",
+      "bytes": 74893,
+      "sha256": "68d293db842f670dd3a3dc6f1c2c3bd92550d76a55b32ced789a8b5dd3abc031"
+    },
+    {
+      "path": "screenshots/step-04.jpg",
+      "bytes": 69042,
+      "sha256": "52e6f43a1d587e525a7aa82d98383cc00e891bdfc58856ce7666af0304f2cc6b"
+    },
+    {
+      "path": "screenshots/step-07.jpg",
+      "bytes": 74250,
+      "sha256": "4ade051f31eb6ef42a42349242e6a451a345d2491cf1783c7d9aa92f9d841b24"
+    },
+    {
+      "path": "short.mp4",
+      "bytes": 134076,
+      "sha256": "4e1a951d261c52afeb3b37b4560d4825614e3031cad3a4f0f3ace04465dc2bc0"
+    },
+    {
+      "path": "social.mp4",
+      "bytes": 321999,
+      "sha256": "8a7038d702b05c447f6dd42896663c5342754a54f2580646dafe9279ccf58960"
+    },
+    {
+      "path": "project.md",
+      "bytes": 722,
+      "sha256": "891d5c865cc1ea017607c974b4e2d2b757369714b29fb0520de07e8d8ae59f47"
+    },
+    {
+      "path": "project.html",
+      "bytes": 3022,
+      "sha256": "3f3d8b316e83a3163676625d3c9eb4c5d0bebcc4e7e0a9fa590583fe548736bb"
+    },
+    {
+      "path": "social-caption.md",
+      "bytes": 187,
+      "sha256": "c48ad5f87375f37226d32e9710a8056d8adc1d03deede0c71c05d7755bae7379"
+    },
+    {
+      "path": "walkthrough.html",
+      "bytes": 7358,
+      "sha256": "58c404277b7470018e0af25c4a6f08aacc91b1502c7adf0d82f858065cd99006"
+    },
+    {
+      "path": "cards/01.png",
+      "bytes": 215831,
+      "sha256": "75fd07c88aa1ada3237c5fd1bf6d555b73b3cba7ae08ab38c87fcedae070dad9"
+    },
+    {
+      "path": "cards/02.png",
+      "bytes": 229473,
+      "sha256": "ff8157b9ef0631967db90d4aa0c7d6efbf2157ca4d3fce229a7b5f131723b29e"
+    },
+    {
+      "path": "cards/03.png",
+      "bytes": 221473,
+      "sha256": "c4dc463afa2bc11517e050e7976ff81c8f1ecbb0813357d3c3253767d55dacf6"
+    },
+    {
+      "path": "cards/04.png",
+      "bytes": 222165,
+      "sha256": "4f2be771deedb9a375081de779241f1fd08bd98b1fbc0b04a2cdf34466809c35"
+    }
+  ],
+  "deliverables": {
+    "version": 1,
+    "files": [
+      "short.mp4",
+      "social.mp4",
+      "project.md",
+      "project.html",
+      "social-caption.md",
+      "walkthrough.html",
+      "cards/01.png",
+      "cards/02.png",
+      "cards/03.png",
+      "cards/04.png"
+    ],
+    "clips": [
+      {
+        "step": 1,
+        "start": 0.5669598000000007,
+        "duration": 3
+      },
+      {
+        "step": 3,
+        "start": 8.959193500000001,
+        "duration": 3
+      },
+      {
+        "step": 4,
+        "start": 13.655914599999996,
+        "duration": 3
+      },
+      {
+        "step": 7,
+        "start": 25.436961699999998,
+        "duration": 3
+      }
+    ],
+    "cards": [
+      {
+        "step": 1,
+        "screenshot": "screenshots/step-01.jpg",
+        "file": "cards/01.png"
+      },
+      {
+        "step": 3,
+        "screenshot": "screenshots/step-03.jpg",
+        "file": "cards/02.png"
+      },
+      {
+        "step": 4,
+        "screenshot": "screenshots/step-04.jpg",
+        "file": "cards/03.png"
+      },
+      {
+        "step": 7,
+        "screenshot": "screenshots/step-07.jpg",
+        "file": "cards/04.png"
+      }
+    ],
+    "short": {
+      "durationSeconds": 12,
+      "width": 1024,
+      "height": 720,
+      "bytes": 134076
+    },
+    "social": {
+      "durationSeconds": 24,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 321999
+    }
+  }
+}

@@ -1,0 +1,14 @@
+name: Workflow improvement
+description: Help maintainers prepare better release materials
+body:
+  - type: textarea
+    attributes:
+      label: What release task are you trying to finish?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Current workaround and frequency
+  - type: textarea
+    attributes:
+      label: Smallest change that would help

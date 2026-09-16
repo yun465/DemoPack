@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Fresh CLI init to full 20–40 second playable pack",
+    "status": "passed",
+    "seconds": 41.7140137
+  },
+  {
+    "name": "Wait for visible text ignores an earlier hidden duplicate",
+    "status": "failed",
+    "reason": "FAILED at step 2 (wait), capture: locator.waitFor: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Saved').first() to be visible\u001b[22m\n\u001b[2m    11 × locator resolved to hidden <p>Saved</p>\u001b[22m\n\nDiagnostic: <workspace>/test-results\\acceptance-1789520087701\\hidden-output\\2026-09-16T00-55-29-428Z-c586d10a\\failure.json"
+  },
+  {
+    "name": "Relative open navigation, repeat export and previous files preserved",
+    "status": "passed",
+    "seconds": 4.761158600000003
+  },
+  {
+    "name": "caption-overflow fails without success media",
+    "status": "passed",
+    "seconds": 0.9274222999999984
+  },
+  {
+    "name": "invalid-gif fails without success media",
+    "status": "passed",
+    "seconds": 1.5712818999999945
+  },
+  {
+    "name": "http-error fails without success media",
+    "status": "passed",
+    "seconds": 1.0182314000000041
+  }
+]

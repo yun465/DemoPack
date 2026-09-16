@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "runId": "2026-09-16T01-16-36-480Z-55dee647",
+  "title": "Orbit — from release checklist to ready",
+  "events": [
+    {
+      "index": 0,
+      "action": "open",
+      "caption": "Start with a small, focused release checklist.",
+      "startMs": 0.4916000000000622,
+      "endMs": 3560.7223000000004,
+      "screenshot": "screenshots/step-01.jpg",
+      "screenshotAtMs": 3493.0226000000002
+    },
+    {
+      "index": 1,
+      "action": "fill",
+      "caption": "Add the work that makes your release easier to share.",
+      "startMs": 3560.7506000000003,
+      "endMs": 7756.808800000001
+    },
+    {
+      "index": 2,
+      "action": "click",
+      "caption": "One click adds a new task to the board.",
+      "startMs": 7756.8269,
+      "endMs": 11984.1927,
+      "screenshot": "screenshots/step-03.jpg",
+      "screenshotAtMs": 11901.604
+    },
+    {
+      "index": 3,
+      "action": "click",
+      "caption": "Mark the demo ready when the work is done.",
+      "startMs": 11984.2506,
+      "endMs": 16783.0038,
+      "screenshot": "screenshots/step-04.jpg",
+      "screenshotAtMs": 16702.7326
+    },
+    {
+      "index": 4,
+      "action": "click",
+      "caption": "Finish the changelog and keep the release moving.",
+      "startMs": 16783.0824,
+      "endMs": 20947.6429
+    },
+    {
+      "index": 5,
+      "action": "wait",
+      "caption": "The release summary reflects the actual board state.",
+      "startMs": 20947.656,
+      "endMs": 24437.733
+    },
+    {
+      "index": 6,
+      "action": "screenshot",
+      "caption": "A clear final state, ready for the project README.",
+      "startMs": 24437.8052,
+      "endMs": 28524.612999999998,
+      "screenshot": "screenshots/step-07.jpg",
+      "screenshotAtMs": 28363.274999999998
+    }
+  ],
+  "media": {
+    "durationSeconds": 28.64,
+    "width": 1024,
+    "height": 720,
+    "encodedFps": 25,
+    "capturedFrames": 262,
+    "meanCaptureFps": 9.166806655816783,
+    "maxCaptureGapMs": 111.74530000000232,
+    "gif": {
+      "width": 720,
+      "fps": 8,
+      "seconds": 14,
+      "start": 3
+    },
+    "environment": {
+      "node": "v24.19.0",
+      "ffmpeg": "ffmpeg version 6.1.1-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers\r",
+      "ffprobe": "ffprobe version 4.0.2 Copyright (c) 2007-2018 the FFmpeg developers\r",
+      "chromium": "153.0.8010.12"
+    },
+    "captureWarnings": []
+  },
+  "files": [
+    {
+      "path": "demo.mp4",
+      "bytes": 306631,
+      "sha256": "1a1163982ef1418249ccf87e9756f6bbf34a8823bfacfeca0902ce7a9fd07a76"
+    },
+    {
+      "path": "demo.gif",
+      "bytes": 522128,
+      "sha256": "7db0a2a9231f1185fd8504c84c41015048e2085e194485a917e97d61dc405418"
+    },
+    {
+      "path": "cover.jpg",
+      "bytes": 76256,
+      "sha256": "4e7818b66a85a7ffdd50d32c97a0e067f468a07d5996964ea4b2a547a39a7344"
+    },
+    {
+      "path": "README-snippet.md",
+      "bytes": 776,
+      "sha256": "d16515311e514d25b8b34f8cfbcac02b8690957d589927f4f7ad2a48768c2d36"
+    },
+    {
+      "path": "index.html",
+      "bytes": 3369,
+      "sha256": "fd05031b1a51125a0fdafd729293dae712651633a03454ad41a0eb94b0e3bb30"
+    },
+    {
+      "path": "screenshots/step-01.jpg",
+      "bytes": 76256,
+      "sha256": "4e7818b66a85a7ffdd50d32c97a0e067f468a07d5996964ea4b2a547a39a7344"
+    },
+    {
+      "path": "screenshots/step-03.jpg",
+      "bytes": 80294,
+      "sha256": "9c22a15c7587810f2b67f83a35c3a67e1e3048ce19542bf010513ca411a4d0be"
+    },
+    {
+      "path": "screenshots/step-04.jpg",
+      "bytes": 78361,
+      "sha256": "d72f51dbde51e2b03835f5d539d62c35aa62ddf7c1948951737ee3bed8c4df3f"
+    },
+    {
+      "path": "screenshots/step-07.jpg",
+      "bytes": 81230,
+      "sha256": "435db7c6ae018d05d23437e9c362055b433dc6d4d873fcb6eaa53cf9fd7cdc3d"
+    }
+  ]
+}

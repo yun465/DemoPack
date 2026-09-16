@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Fresh CLI init to full 20–40 second playable pack",
+    "status": "passed",
+    "seconds": 33.9646727
+  },
+  {
+    "name": "Wait for visible text ignores an earlier hidden duplicate",
+    "status": "passed",
+    "seconds": 2.618641499999998
+  },
+  {
+    "name": "Relative open navigation, repeat export and previous files preserved",
+    "status": "passed",
+    "seconds": 4.7904369
+  },
+  {
+    "name": "caption-overflow fails without success media",
+    "status": "passed",
+    "seconds": 0.8777459000000017
+  },
+  {
+    "name": "invalid-gif fails without success media",
+    "status": "passed",
+    "seconds": 1.5413694000000033
+  },
+  {
+    "name": "http-error fails without success media",
+    "status": "passed",
+    "seconds": 1.090519500000002
+  }
+]

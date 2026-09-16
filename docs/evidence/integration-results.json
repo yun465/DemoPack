@@ -1,0 +1,38 @@
+[
+  {
+    "name": "missing element reports exact step and never emits successful media",
+    "status": "passed"
+  },
+  {
+    "name": "missing media dependency gives actionable failure",
+    "status": "passed"
+  },
+  {
+    "name": "missing ffprobe and Chromium have actionable doctor errors",
+    "status": "passed"
+  },
+  {
+    "name": "cancel during recording cleans partial files",
+    "status": "passed"
+  },
+  {
+    "name": "cancel during encoding terminates export and cleans partial files",
+    "status": "passed"
+  },
+  {
+    "name": "Chinese input/output paths and Unicode captions export playable media",
+    "status": "passed"
+  },
+  {
+    "name": "moved offline file:// preview, media playback and relative README images",
+    "status": "passed"
+  },
+  {
+    "name": "preview serves byte ranges and does not escape its root",
+    "status": "passed"
+  },
+  {
+    "name": "init protects existing directories and generated starter works",
+    "status": "passed"
+  }
+]

@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "runId": "2026-09-16T02-31-34-103Z-6c899319",
+  "title": "DemoPack · 一次演示，四份发布材料",
+  "events": [
+    {
+      "index": 0,
+      "action": "open",
+      "caption": "这是真实生成的材料包，四个入口对应四种使用方式。",
+      "startMs": 0.42039999999997235,
+      "endMs": 4154.980099999999,
+      "screenshot": "screenshots/step-01.jpg",
+      "screenshotAtMs": 4041.4061
+    },
+    {
+      "index": 1,
+      "action": "click",
+      "caption": "第一份：完整视频，保留从开始到结束的操作与说明。",
+      "startMs": 4155.006299999999,
+      "endMs": 8408.134999999998,
+      "screenshot": "screenshots/step-02.jpg",
+      "screenshotAtMs": 8309.378299999998
+    },
+    {
+      "index": 2,
+      "action": "click",
+      "caption": "第二份：重点短片，从同一次录制中选择关键步骤。",
+      "startMs": 8408.2063,
+      "endMs": 12671.301899999999,
+      "screenshot": "screenshots/step-03.jpg",
+      "screenshotAtMs": 12557.543699999998
+    },
+    {
+      "index": 3,
+      "action": "click",
+      "caption": "第三份：竖屏图文视频，真实截图配作者填写的文案。",
+      "startMs": 12671.318299999999,
+      "endMs": 17445.7228,
+      "screenshot": "screenshots/step-04.jpg",
+      "screenshotAtMs": 17366.431699999997
+    },
+    {
+      "index": 4,
+      "action": "click",
+      "caption": "第四份：项目介绍，提供阅读页和可编辑文字。",
+      "startMs": 17445.7451,
+      "endMs": 21632.368899999998,
+      "screenshot": "screenshots/step-05.jpg",
+      "screenshotAtMs": 21517.8635
+    },
+    {
+      "index": 5,
+      "action": "click",
+      "caption": "介绍中的功能与限制由作者提供，工具负责整理排版。",
+      "startMs": 21632.4161,
+      "endMs": 25916.4973,
+      "screenshot": "screenshots/step-06.jpg",
+      "screenshotAtMs": 25801.0199
+    },
+    {
+      "index": 6,
+      "action": "open",
+      "caption": "复制整个文件夹即可离线查看，无需账号或模型密钥。",
+      "startMs": 25916.5424,
+      "endMs": 30059.5444,
+      "screenshot": "screenshots/step-07.jpg",
+      "screenshotAtMs": 29945.251099999998
+    }
+  ],
+  "media": {
+    "durationSeconds": 30.2,
+    "width": 1184,
+    "height": 980,
+    "encodedFps": 25,
+    "capturedFrames": 276,
+    "meanCaptureFps": 9.149624455156024,
+    "maxCaptureGapMs": 126.60159999999996,
+    "gif": {
+      "width": 720,
+      "fps": 8,
+      "seconds": 16,
+      "start": 3
+    },
+    "environment": {
+      "node": "v24.19.0",
+      "ffmpeg": "ffmpeg version 6.1.1-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers\r",
+      "ffprobe": "ffprobe version 4.0.2 Copyright (c) 2007-2018 the FFmpeg developers\r",
+      "chromium": "153.0.8010.12"
+    },
+    "captureWarnings": []
+  },
+  "files": [
+    {
+      "path": "demo.mp4",
+      "bytes": 1034388,
+      "sha256": "cfdc3767af53f53c5c4dd8a8aa2cb7dd2b27cf9af8dde58478b1b274213b71ed"
+    },
+    {
+      "path": "demo.gif",
+      "bytes": 1976858,
+      "sha256": "eb2b54a1b52f45d929a562500b39b06e980460be82d7b146a76ced3e921f0742"
+    },
+    {
+      "path": "cover.jpg",
+      "bytes": 121945,
+      "sha256": "18c405d0b0ae8a6cdd1de3cfbcc50a34192a6dbc7a93fbae351d53e155a89112"
+    },
+    {
+      "path": "README-snippet.md",
+      "bytes": 1071,
+      "sha256": "27041a58936385932f7bc0a98ec2266ba99b34694c7c912558d8d2cb966837ef"
+    },
+    {
+      "path": "index.html",
+      "bytes": 5025,
+      "sha256": "ebfa782be658b497843a84d27b333e2dd99321830770caff1d398b47cf0d5e5d"
+    },
+    {
+      "path": "screenshots/step-01.jpg",
+      "bytes": 121945,
+      "sha256": "18c405d0b0ae8a6cdd1de3cfbcc50a34192a6dbc7a93fbae351d53e155a89112"
+    },
+    {
+      "path": "screenshots/step-02.jpg",
+      "bytes": 116021,
+      "sha256": "8b5b6f41c970af519fd85a8679bd57437114712d5b0dc27edee4dea1227b55fb"
+    },
+    {
+      "path": "screenshots/step-03.jpg",
+      "bytes": 116039,
+      "sha256": "1deb867a46946ff96c36a0e915cfcebb6af296474b9c06018c7c11cf1bf158ac"
+    },
+    {
+      "path": "screenshots/step-04.jpg",
+      "bytes": 85898,
+      "sha256": "fd4e315ca31d71a1f1a9a5b55ebf68a2b98b204bf2593e4df7d66e85be1dd4fc"
+    },
+    {
+      "path": "screenshots/step-05.jpg",
+      "bytes": 66104,
+      "sha256": "add8c29d8a1603362be3266a215b6eb59a10765038251e2a54b4fbacc628690b"
+    },
+    {
+      "path": "screenshots/step-06.jpg",
+      "bytes": 114018,
+      "sha256": "3959983af6ee963d6321f8160276f05fb9b488c3e22d475b8745a06906ee8295"
+    },
+    {
+      "path": "screenshots/step-07.jpg",
+      "bytes": 122224,
+      "sha256": "9e0e46190935456528866a35a6ecd2fad629b7eae4a5d91cff36f9495332396e"
+    },
+    {
+      "path": "short.mp4",
+      "bytes": 246585,
+      "sha256": "b1e92656e611387008f793e76d99e93f4847b217e2f611b980a9f711b4ee5786"
+    },
+    {
+      "path": "social.mp4",
+      "bytes": 387196,
+      "sha256": "b071eac520c9ac28f6db398f5b973455ffec43878e361ea60ce4bdd99612802a"
+    },
+    {
+      "path": "project.md",
+      "bytes": 838,
+      "sha256": "774006e890e1a99b8e38c3aee0726db7ca33300e5bf9a83ce3a47b0bcca1bedb"
+    },
+    {
+      "path": "project.html",
+      "bytes": 3146,
+      "sha256": "1135c59be62d909db93f4f237212b885f06ad9465c1e41e1e141d5151b8a102a"
+    },
+    {
+      "path": "social-caption.md",
+      "bytes": 630,
+      "sha256": "f573e899c9f4d5a248790feb6a02fa1791f433c1c29eba6301d3d580408b7246"
+    },
+    {
+      "path": "walkthrough.html",
+      "bytes": 8496,
+      "sha256": "d0bfe74d11c8894b0250afaf13f36104ba7f2f4970a0b363c09b1129177bdd53"
+    },
+    {
+      "path": "cards/01.png",
+      "bytes": 292829,
+      "sha256": "8a1be6914f166d4cd8cf64714321835006b95ef09f1388ca358352e1fb69e30f"
+    },
+    {
+      "path": "cards/02.png",
+      "bytes": 251384,
+      "sha256": "6a12eb7428d1f358084990ce8242d66d6f8b7a911a842d5223584315c5ffe48f"
+    },
+    {
+      "path": "cards/03.png",
+      "bytes": 208237,
+      "sha256": "7ce4a24a906a5282c21a540e9eb2bcfa784461089af179bc429dcee69f57c9dc"
+    },
+    {
+      "path": "cards/04.png",
+      "bytes": 186894,
+      "sha256": "996e32fe53af5b3b8180a658daa0a9a95287b0b81c2719fdb868cdd2bcc1df35"
+    }
+  ],
+  "deliverables": {
+    "version": 1,
+    "files": [
+      "short.mp4",
+      "social.mp4",
+      "project.md",
+      "project.html",
+      "social-caption.md",
+      "walkthrough.html",
+      "cards/01.png",
+      "cards/02.png",
+      "cards/03.png",
+      "cards/04.png"
+    ],
+    "clips": [
+      {
+        "step": 1,
+        "start": 1.1549800999999986,
+        "duration": 3
+      },
+      {
+        "step": 3,
+        "start": 9.671301899999998,
+        "duration": 3
+      },
+      {
+        "step": 4,
+        "start": 14.445722799999999,
+        "duration": 3
+      },
+      {
+        "step": 5,
+        "start": 18.632368899999996,
+        "duration": 3
+      }
+    ],
+    "cards": [
+      {
+        "step": 1,
+        "screenshot": "screenshots/step-01.jpg",
+        "file": "cards/01.png"
+      },
+      {
+        "step": 3,
+        "screenshot": "screenshots/step-03.jpg",
+        "file": "cards/02.png"
+      },
+      {
+        "step": 4,
+        "screenshot": "screenshots/step-04.jpg",
+        "file": "cards/03.png"
+      },
+      {
+        "step": 5,
+        "screenshot": "screenshots/step-05.jpg",
+        "file": "cards/04.png"
+      }
+    ],
+    "short": {
+      "durationSeconds": 12,
+      "width": 1184,
+      "height": 980,
+      "bytes": 246585
+    },
+    "social": {
+      "durationSeconds": 24,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 387196
+    }
+  }
+}

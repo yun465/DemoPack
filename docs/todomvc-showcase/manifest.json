@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "runId": "2026-09-16T03-10-29-347Z-e98214b4",
+  "title": "TodoMVC · 从任务清单到完成记录",
+  "events": [
+    {
+      "index": 0,
+      "action": "open",
+      "caption": "TodoMVC：用一份简单的任务清单，体验完整的待办流程。",
+      "startMs": 0.5537000000001626,
+      "endMs": 4630.7207
+    },
+    {
+      "index": 1,
+      "action": "fill",
+      "caption": "第一步：在顶部输入框填写任务，所有内容均为虚构演示数据。",
+      "startMs": 4630.7576,
+      "endMs": 8275.9444
+    },
+    {
+      "index": 2,
+      "action": "press",
+      "caption": "按回车提交，第一条任务进入清单。",
+      "startMs": 8275.9632,
+      "endMs": 12873.325200000001,
+      "screenshot": "screenshots/step-03.jpg",
+      "screenshotAtMs": 12754.773500000001
+    },
+    {
+      "index": 3,
+      "action": "fill",
+      "caption": "继续添加第二条：录制功能演示。",
+      "startMs": 12873.3834,
+      "endMs": 15839.1588
+    },
+    {
+      "index": 4,
+      "action": "press",
+      "caption": "再次回车提交，待完成数量随之更新。",
+      "startMs": 15839.179600000001,
+      "endMs": 19916.5455
+    },
+    {
+      "index": 5,
+      "action": "fill",
+      "caption": "再添加一项检查任务，把发布前的工作列清楚。",
+      "startMs": 19916.568700000003,
+      "endMs": 22904.7702
+    },
+    {
+      "index": 6,
+      "action": "press",
+      "caption": "三项任务已建立：项目介绍、功能演示和发布检查。",
+      "startMs": 22904.795100000003,
+      "endMs": 28090.182699999998,
+      "screenshot": "screenshots/step-07.jpg",
+      "screenshotAtMs": 27976.1708
+    },
+    {
+      "index": 7,
+      "action": "click",
+      "caption": "点击「整理项目介绍」左侧的圆圈，将这项任务标记为完成。",
+      "startMs": 28090.280100000004,
+      "endMs": 33317.8261,
+      "screenshot": "screenshots/step-08.jpg",
+      "screenshotAtMs": 33212.3945
+    },
+    {
+      "index": 8,
+      "action": "wait",
+      "caption": "确认完成状态：文字出现删除线，剩余待办变为两项。",
+      "startMs": 33317.8491,
+      "endMs": 37439.0829
+    },
+    {
+      "index": 9,
+      "action": "click",
+      "caption": "选择 Active（待完成），只查看接下来需要处理的任务。",
+      "startMs": 37439.106,
+      "endMs": 42741.7219,
+      "screenshot": "screenshots/step-10.jpg",
+      "screenshotAtMs": 42628.759399999995
+    },
+    {
+      "index": 10,
+      "action": "wait",
+      "caption": "待完成视图保留录制演示和检查材料，便于专注下一步。",
+      "startMs": 42741.7526,
+      "endMs": 46803.8423
+    },
+    {
+      "index": 11,
+      "action": "click",
+      "caption": "切换 Completed（已完成），查看已经做好的项目介绍。",
+      "startMs": 46803.8616,
+      "endMs": 52115.8422,
+      "screenshot": "screenshots/step-12.jpg",
+      "screenshotAtMs": 52010.4658
+    },
+    {
+      "index": 12,
+      "action": "click",
+      "caption": "回到 All（全部），把已完成和待完成任务放在一起检查。",
+      "startMs": 52115.8618,
+      "endMs": 56278.409999999996
+    },
+    {
+      "index": 13,
+      "action": "click",
+      "caption": "点击 Clear completed（清除已完成），清单只保留未完成事项。",
+      "startMs": 56278.4254,
+      "endMs": 61409.1434,
+      "screenshot": "screenshots/step-14.jpg",
+      "screenshotAtMs": 61294.6034
+    },
+    {
+      "index": 14,
+      "action": "wait",
+      "caption": "最终剩余两项：录制功能演示、检查发布材料。",
+      "startMs": 61409.1685,
+      "endMs": 65967.76190000001,
+      "screenshot": "screenshots/step-15.jpg",
+      "screenshotAtMs": 65844.92510000001
+    }
+  ],
+  "media": {
+    "durationSeconds": 66.08,
+    "width": 1024,
+    "height": 820,
+    "encodedFps": 25,
+    "capturedFrames": 615,
+    "meanCaptureFps": 9.311827525839993,
+    "maxCaptureGapMs": 115.61549999999988,
+    "gif": {
+      "width": 640,
+      "fps": 8,
+      "seconds": 15,
+      "start": 27
+    },
+    "environment": {
+      "node": "v24.19.0",
+      "ffmpeg": "ffmpeg version 6.1.1-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers\r",
+      "ffprobe": "ffprobe version 4.0.2 Copyright (c) 2007-2018 the FFmpeg developers\r",
+      "chromium": "153.0.8010.12"
+    },
+    "captureWarnings": []
+  },
+  "files": [
+    {
+      "path": "demo.mp4",
+      "bytes": 490277,
+      "sha256": "17fa9df13424bebe8f7020a55b2257b924fc6de3f153d8d26fb913c075423585"
+    },
+    {
+      "path": "demo.gif",
+      "bytes": 194544,
+      "sha256": "1dbd83c91ac5f689d895cfa57283a9537ceefa9497f4fa9193ba6fca0c9576cd"
+    },
+    {
+      "path": "cover.jpg",
+      "bytes": 56564,
+      "sha256": "eb37081f3eeba7f378c149ac1a7e3716d3ec3cf8cd5f5af520bca28d17a04872"
+    },
+    {
+      "path": "README-snippet.md",
+      "bytes": 1687,
+      "sha256": "c97aa8062d97a8f9d6bfc9a4f23f3b904afacedc8cd319a560650d4d3de87fdd"
+    },
+    {
+      "path": "index.html",
+      "bytes": 5225,
+      "sha256": "3ebdbc4b49b32669f31224161db6c15998d9bdba9ce936bd687a5d2f2f4d753b"
+    },
+    {
+      "path": "screenshots/step-03.jpg",
+      "bytes": 56564,
+      "sha256": "eb37081f3eeba7f378c149ac1a7e3716d3ec3cf8cd5f5af520bca28d17a04872"
+    },
+    {
+      "path": "screenshots/step-07.jpg",
+      "bytes": 70429,
+      "sha256": "fa6937bf040f47c5134859f02192a6863e6f82f62309fb09e422491068052380"
+    },
+    {
+      "path": "screenshots/step-08.jpg",
+      "bytes": 75227,
+      "sha256": "6929839e853f74e96e3d9990f15847e2adfb3bb383aa880c5238ed8ad90101f0"
+    },
+    {
+      "path": "screenshots/step-10.jpg",
+      "bytes": 66298,
+      "sha256": "26b0aff4f68ce6f6e35b61a587fedf685516ade7b19e55c4add9623b6ed3db9f"
+    },
+    {
+      "path": "screenshots/step-12.jpg",
+      "bytes": 60966,
+      "sha256": "0edc3929a19d219e4573518b0f34b6b62e099ef1d6f5e0bba30a8086d2dfb6bb"
+    },
+    {
+      "path": "screenshots/step-14.jpg",
+      "bytes": 65155,
+      "sha256": "977347e5fec8a3ad3b6e7d17083a887beac28b3cac6ebde78c1a88c69abd3765"
+    },
+    {
+      "path": "screenshots/step-15.jpg",
+      "bytes": 62753,
+      "sha256": "6eb60ce9b44d77c0d45d961301ecba914757eeb6aa2cb7eaad2018cb1d760c44"
+    },
+    {
+      "path": "short.mp4",
+      "bytes": 173150,
+      "sha256": "c30efc58ae61262b7963ead0b9d50ed6a1160aebd4356f3ec785081d738827db"
+    },
+    {
+      "path": "social.mp4",
+      "bytes": 409125,
+      "sha256": "775acd65154abe214d939d42c3c2c5d9588b04f0c26784bd37e5d7202f0f2722"
+    },
+    {
+      "path": "project.md",
+      "bytes": 2245,
+      "sha256": "91afa1e423563fb596611f72d27272fcc67334ad24651f4510c34ccb94674985"
+    },
+    {
+      "path": "project.html",
+      "bytes": 4576,
+      "sha256": "79e0fa4c918d45ea71c96f941fbbb88449efcfc90f799ec965521c354b7b178e"
+    },
+    {
+      "path": "social-caption.md",
+      "bytes": 489,
+      "sha256": "b228e024419b9e076c505fa31fd86aec8da1a50185003cf537a83361ffdf4028"
+    },
+    {
+      "path": "walkthrough.html",
+      "bytes": 9553,
+      "sha256": "72cac9fe0ea949b4ced8e4d6db854ff76cbbb7b54b90a93c7028da2ec4e4e3f5"
+    },
+    {
+      "path": "cards/01.png",
+      "bytes": 186752,
+      "sha256": "4705b8d78b5b240f2ec8553ae08350115b442c3eac180479684f38f3e25d85b2"
+    },
+    {
+      "path": "cards/02.png",
+      "bytes": 221830,
+      "sha256": "8f94b9efa1d6756da16535669b7022179917dd94ad2e570f9b94d328aefe7eca"
+    },
+    {
+      "path": "cards/03.png",
+      "bytes": 230157,
+      "sha256": "b00574338ec563db3aa4b5332394c8e1fd83e9b8da572b399520bbe4898c9f92"
+    },
+    {
+      "path": "cards/04.png",
+      "bytes": 212301,
+      "sha256": "96ecce33c4ec9f8d10f12d0b1200f761540feec553c6e3a0ba6f4b9600ec2d22"
+    },
+    {
+      "path": "cards/05.png",
+      "bytes": 205434,
+      "sha256": "66ac023c5cc2940313c281851b5efe21a50e04022465d0c74cb61963fa780ecd"
+    }
+  ],
+  "deliverables": {
+    "version": 1,
+    "files": [
+      "short.mp4",
+      "social.mp4",
+      "project.md",
+      "project.html",
+      "social-caption.md",
+      "walkthrough.html",
+      "cards/01.png",
+      "cards/02.png",
+      "cards/03.png",
+      "cards/04.png",
+      "cards/05.png"
+    ],
+    "clips": [
+      {
+        "step": 3,
+        "start": 9.873325200000002,
+        "duration": 3
+      },
+      {
+        "step": 7,
+        "start": 25.090182699999996,
+        "duration": 3
+      },
+      {
+        "step": 8,
+        "start": 30.317826099999998,
+        "duration": 3
+      },
+      {
+        "step": 10,
+        "start": 39.741721899999995,
+        "duration": 3
+      },
+      {
+        "step": 12,
+        "start": 49.115842199999996,
+        "duration": 3
+      },
+      {
+        "step": 14,
+        "start": 58.4091434,
+        "duration": 3
+      }
+    ],
+    "cards": [
+      {
+        "step": 3,
+        "screenshot": "screenshots/step-03.jpg",
+        "file": "cards/01.png"
+      },
+      {
+        "step": 7,
+        "screenshot": "screenshots/step-07.jpg",
+        "file": "cards/02.png"
+      },
+      {
+        "step": 8,
+        "screenshot": "screenshots/step-08.jpg",
+        "file": "cards/03.png"
+      },
+      {
+        "step": 10,
+        "screenshot": "screenshots/step-10.jpg",
+        "file": "cards/04.png"
+      },
+      {
+        "step": 14,
+        "screenshot": "screenshots/step-14.jpg",
+        "file": "cards/05.png"
+      }
+    ],
+    "short": {
+      "durationSeconds": 18,
+      "width": 1024,
+      "height": 820,
+      "bytes": 173150
+    },
+    "social": {
+      "durationSeconds": 30,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 409125
+    }
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "title": "TodoMVC · 从任务清单到完成记录",
+  "url": "http://127.0.0.1:5188/",
+  "viewport": {
+    "width": 960,
+    "height": 640
+  },
+  "theme": {
+    "background": "#163b35",
+    "accent": "#c7e4bf",
+    "padding": 32
+  },
+  "gif": {
+    "width": 640,
+    "fps": 8,
+    "seconds": 15,
+    "start": 27
+  },
+  "steps": [
+    {
+      "action": "open",
+      "caption": "TodoMVC：用一份简单的任务清单，体验完整的待办流程。",
+      "holdMs": 4000
+    },
+    {
+      "action": "fill",
+      "selector": ".new-todo",
+      "value": "整理项目介绍",
+      "caption": "第一步：在顶部输入框填写任务，所有内容均为虚构演示数据。",
+      "holdMs": 3000
+    },
+    {
+      "action": "press",
+      "selector": ".new-todo",
+      "key": "Enter",
+      "caption": "按回车提交，第一条任务进入清单。",
+      "holdMs": 4000,
+      "screenshot": true
+    },
+    {
+      "action": "fill",
+      "selector": ".new-todo",
+      "value": "录制功能演示",
+      "caption": "继续添加第二条：录制功能演示。",
+      "holdMs": 2500
+    },
+    {
+      "action": "press",
+      "selector": ".new-todo",
+      "key": "Enter",
+      "caption": "再次回车提交，待完成数量随之更新。",
+      "holdMs": 3500
+    },
+    {
+      "action": "fill",
+      "selector": ".new-todo",
+      "value": "检查发布材料",
+      "caption": "再添加一项检查任务，把发布前的工作列清楚。",
+      "holdMs": 2500
+    },
+    {
+      "action": "press",
+      "selector": ".new-todo",
+      "key": "Enter",
+      "caption": "三项任务已建立：项目介绍、功能演示和发布检查。",
+      "holdMs": 4500,
+      "screenshot": true
+    },
+    {
+      "action": "click",
+      "selector": ".todo-list li:has(label:text-is(\"整理项目介绍\")) .toggle",
+      "caption": "点击「整理项目介绍」左侧的圆圈，将这项任务标记为完成。",
+      "holdMs": 4500,
+      "screenshot": true
+    },
+    {
+      "action": "wait",
+      "selector": ".todo-list li.completed:has(label:text-is(\"整理项目介绍\"))",
+      "text": "2 items left",
+      "caption": "确认完成状态：文字出现删除线，剩余待办变为两项。",
+      "holdMs": 3500
+    },
+    {
+      "action": "click",
+      "selector": "a[href='#/active']",
+      "caption": "选择 Active（待完成），只查看接下来需要处理的任务。",
+      "holdMs": 4500,
+      "screenshot": true
+    },
+    {
+      "action": "wait",
+      "selector": ".todo-list li:has(label:text-is(\"检查发布材料\"))",
+      "caption": "待完成视图保留录制演示和检查材料，便于专注下一步。",
+      "holdMs": 3500
+    },
+    {
+      "action": "click",
+      "selector": "a[href='#/completed']",
+      "caption": "切换 Completed（已完成），查看已经做好的项目介绍。",
+      "holdMs": 4500,
+      "screenshot": true
+    },
+    {
+      "action": "click",
+      "selector": "a[href='#/']",
+      "caption": "回到 All（全部），把已完成和待完成任务放在一起检查。",
+      "holdMs": 3500
+    },
+    {
+      "action": "click",
+      "selector": ".clear-completed",
+      "caption": "点击 Clear completed（清除已完成），清单只保留未完成事项。",
+      "holdMs": 4500,
+      "screenshot": true
+    },
+    {
+      "action": "wait",
+      "text": "2 items left",
+      "caption": "最终剩余两项：录制功能演示、检查发布材料。",
+      "holdMs": 4000,
+      "screenshot": true
+    }
+  ],
+  "release": {
+    "short": {
+      "steps": [3, 7, 8, 10, 12, 14],
+      "secondsPerStep": 3
+    },
+    "social": {
+      "secondsPerCard": 6,
+      "cards": [
+        {
+          "step": 3,
+          "title": "把待办，先写下来",
+          "body": "试用 GitHub 上的 TodoMVC。输入任务并回车，第一项工作就进入了清单。"
+        },
+        {
+          "step": 7,
+          "title": "发布之前，列清三件事",
+          "body": "整理介绍、录制演示、检查材料。本次使用虚构任务，展示真实操作流程。"
+        },
+        {
+          "step": 8,
+          "title": "做完一件，就勾掉一件",
+          "body": "勾选任务后显示完成状态，剩余数量同步变化。每一步都有清楚的反馈。"
+        },
+        {
+          "step": 10,
+          "title": "下一步，只看没做完的",
+          "body": "切换待完成视图，把注意力放回当前任务；也能单独查看已完成记录。"
+        },
+        {
+          "step": 14,
+          "title": "最后，整理好清单",
+          "body": "清除已完成事项，留下接下来要做的工作。画面由 DemoPack 本地实录。"
+        }
+      ]
+    },
+    "project": {
+      "summary": "TodoMVC 是 tastejs 在 GitHub 维护的待办应用示例集合，用同一类任务管理功能展示不同前端技术的实现。本次选用 JavaScript ES6 示例，由 DemoPack 在本地真实运行并导出材料。",
+      "sections": [
+        {
+          "heading": "项目是什么",
+          "body": "项目地址：https://github.com/tastejs/todomvc 。本次使用 examples/javascript-es6，而不是整个仓库的所有框架实现。它适合学习前端交互、观察 MVC 结构，以及比较同类应用的实现方式。"
+        },
+        {
+          "heading": "这次实际演示了什么",
+          "body": "依次输入三项虚构任务，使用 Enter 提交；完成第一项；检查剩余数量；切换待完成和已完成筛选；回到全部列表；清除已完成任务。每个动作均由真实 Chromium 执行。没有预先填入数据库，也没有用静态页面模拟结果。"
+        },
+        {
+          "heading": "如何跟着操作",
+          "body": "在顶部输入任务后按回车。点击任务左侧圆圈标记完成。底部 All、Active、Completed 分别表示全部、待完成、已完成；Clear completed 用来清除完成项。目标项目的原始界面保持英文，演示字幕、包装和项目介绍为中文。"
+        },
+        {
+          "heading": "实现与运行方式",
+          "body": "该示例使用原生 JavaScript ES6 和 MVC 结构，Webpack 负责构建。示例 README 说明使用内存数据保存待办。本次直接启动该提交已经跟踪的 dist 静态构建，没有额外安装它的构建依赖，也未修改它的页面或脚本。"
+        },
+        {
+          "heading": "来源与许可",
+          "body": "来源提交：ff43b02e59dfa604386bb382034b2cd07c2bcd8a。根目录 license.md 为 MIT，版权归 Addy Osmani、Sindre Sorhus、Pascal Hartig、Stephen Sawchuk。本材料是独立试用案例，不代表 TodoMVC 团队背书。"
+        },
+        {
+          "heading": "材料如何保持一致",
+          "body": "详细视频、短片、竖屏图文视频、GIF、截图和本篇说明由同一份演示配置导出。短片截取实际步骤区间，竖屏卡片使用该步骤的实际截图；介绍文字由人工按 README 和实测填写。"
+        },
+        {
+          "heading": "当前限制",
+          "body": "本次仅覆盖 JavaScript ES6 示例中的新增、完成、筛选和清理流程。未覆盖双击编辑、所有框架实现、移动设备或跨会话保存。视频无配音、音乐。生成的材料可离线查看；重新录制时需要先启动目标应用。"
+        }
+      ]
+    },
+    "socialCaption": "今天用 DemoPack 跑了一遍 GitHub 上的 TodoMVC。\n\n从添加三项任务，到勾选完成、按状态筛选、清理完成项，全部是本地浏览器实际操作。一次运行整理出详细视频、18 秒短片、竖屏图文视频和项目介绍。\n\nTodoMVC 来源：github.com/tastejs/todomvc，MIT 许可。这里展示的是 JavaScript ES6 示例，使用虚构任务；不是官方宣传，也没有自动配音。\n\n#开源项目 #前端开发 #效率工具 #产品演示"
+  }
+}

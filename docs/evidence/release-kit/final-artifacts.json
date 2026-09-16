@@ -1,0 +1,26 @@
+[
+  {
+    "name": "kit-showcase",
+    "hashes": "passed",
+    "movedOfflineMedia": "passed",
+    "article": "passed",
+    "externalRequests": 0
+  },
+  {
+    "name": "kit-notes",
+    "hashes": "passed",
+    "movedOfflineMedia": "passed",
+    "article": "passed",
+    "externalRequests": 0
+  },
+  {
+    "name": "kit-self-showcase",
+    "hashes": "passed",
+    "movedOfflineMedia": "passed",
+    "article": "passed",
+    "externalRequests": 0
+  },
+  {
+    "hubLinks": "passed"
+  }
+]

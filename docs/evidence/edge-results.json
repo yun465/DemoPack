@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Delayed element wait and fresh screenshot timestamp",
+    "status": "passed"
+  },
+  {
+    "name": "Minimum viewport/padding, long title, low capture cadence",
+    "status": "passed"
+  },
+  {
+    "name": "Cancellation during GIF encoding leaves diagnostics only",
+    "status": "passed"
+  }
+]
