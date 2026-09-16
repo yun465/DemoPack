@@ -15,7 +15,7 @@ DemoPack 本身不调用模型、不需要 API Key；使用 Codex 需要另外�
 导入报告或外部素材时，成品是材料页回放；原始材料可能来自不同运行或拍摄，来源清单随包保存。
 本地处理，人工填写说明，无账号、无模型 API Key、无默认水印。
 
-[English](README.md) · [观看真实演示](docs/kit-self-showcase/demo.mp4) · [中文示例材料包](docs/showcase-zh/index.html)
+[English](README.en.md) · [观看真实演示](docs/kit-self-showcase/demo.mp4) · [中文示例材料包](docs/showcase-zh/index.html)
 
 ![DemoPack 录制自己生成的离线预览](docs/kit-self-showcase/demo.gif)
 
