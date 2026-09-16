@@ -5,6 +5,8 @@ docs/kit-showcase/** -text
 docs/kit-self-showcase/** -text
 docs/kit-notes/** -text
 docs/todomvc-showcase/** -text
+docs/report-showcase/** -text
+docs/media-showcase/** -text
 docs/showcase/** -text
 docs/showcase-zh/** -text
 docs/self-showcase/** -text

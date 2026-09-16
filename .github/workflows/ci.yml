@@ -24,3 +24,5 @@ jobs:
       - run: npm run test:edges
       - run: npm run test:kit
       - run: npm run test:keyboard
+      - run: npm run test:imports
+      - run: npm run test:import-video

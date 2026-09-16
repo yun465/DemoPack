@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "kind": "media",
+  "title": "素材导入 · 合成测试片示例",
+  "conditions": "运行 make-fixture.mjs，使用 FFmpeg testsrc2 生成 960×540、25 fps、10 秒测试片和一张测试图。没有连接硬件。",
+  "limitations": "素材为合成测试内容，不证明任何设备功能。导出视频为静音浏览器采样回放，不能替代逐帧剪辑；原片保留在来源文件中。",
+  "sources": [
+    {
+      "file": "sources/01.png",
+      "kind": "image",
+      "origin": "FFmpeg testsrc2 合成测试图",
+      "title": "导入图片",
+      "sha256": "2531ab863de6d690b1573b2c82b6facb4731d1a400bd05ef45586be037eb0f85",
+      "bytes": 102507,
+      "startSeconds": 0,
+      "seconds": 6
+    },
+    {
+      "file": "sources/02.mp4",
+      "kind": "video",
+      "origin": "FFmpeg testsrc2 合成片；非现场设备拍摄",
+      "title": "播放已有视频",
+      "sha256": "375a3ba0b98262d4a2347363a05d79490cbab9431fcfbca83f01a0b46d6722e9",
+      "bytes": 1826156,
+      "startSeconds": 1,
+      "seconds": 7
+    },
+    {
+      "file": "sources/03.txt",
+      "kind": "text",
+      "origin": "人工填写的测试素材说明",
+      "title": "附上说明和限制",
+      "sha256": "bf5f33da3a62bb77e3282b3abe06ba9d451ec86b3a9c9cd0d3a3dcd3d60d6eca",
+      "bytes": 306,
+      "startSeconds": 0,
+      "seconds": 6
+    }
+  ]
+}

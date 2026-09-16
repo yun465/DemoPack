@@ -7,10 +7,13 @@ import { generate, doctor } from './capture.js';
 import { serve } from './server.js';
 import { inspectConfig, verifyPack, rootSnippet } from './release.js';
 import { spawn } from 'node:child_process';
+import { generateStory } from './imports.js';
 const help = `DemoPack — 一次浏览器运行，四份发布材料
 
 demopack init [directory]                    创建可编辑的本地示例（含四份材料配置）
 demopack generate <demo.json> [--out output]  真实录制并导出到独立目录
+demopack report <story.json> [--out output]   导入结果报告，生成四份材料和来源清单
+demopack media <story.json> [--out output]    导入本地图片/视频/日志，生成材料回放
 demopack preview <run-directory> [--port 4173] 本地预览材料
 demopack doctor                             检查 Node、Chromium 与 FFmpeg
 demopack validate <demo.json>                检查配置，不启动录制
@@ -67,14 +70,15 @@ try {
     console.log(
       `Created ${destination}\nNext: node "${fileURLToPath(import.meta.url)}" generate "${path.join(destination, 'demo.json')}"`,
     );
-  } else if (command === 'generate') {
-    if (!arg) throw new Error('Provide demo.json');
+  } else if (command === 'generate' || command === 'report' || command === 'media') {
+    if (!arg) throw new Error(command === 'generate' ? 'Provide demo.json' : 'Provide story.json');
     const controller = new AbortController();
     const cancel = () => controller.abort();
     process.once('SIGINT', cancel);
     process.once('SIGTERM', cancel);
     try {
-      await generate(arg, values.out, controller.signal);
+      if (command === 'generate') await generate(arg, values.out, controller.signal);
+      else await generateStory(arg, command, values.out, controller.signal);
     } finally {
       process.removeListener('SIGINT', cancel);
       process.removeListener('SIGTERM', cancel);

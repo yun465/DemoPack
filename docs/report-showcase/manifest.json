@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "status": "success",
+  "runId": "2026-09-16T04-00-22-154Z-48b59339",
+  "title": "代码优化 · 用实测结果说话",
+  "events": [
+    {
+      "index": 0,
+      "action": "open",
+      "caption": "结果报告回放 · 非测试现场录屏：把重复的线性查找改为集合查找，并把建表成本计入测量。",
+      "startMs": 0.35750000000007276,
+      "endMs": 6863.43,
+      "screenshot": "screenshots/step-01.jpg",
+      "screenshotAtMs": 6764.535
+    },
+    {
+      "index": 1,
+      "action": "open",
+      "caption": "结果报告回放 · 非测试现场录屏：展示七轮运行的中位数，不把单次结果推广到所有项目。",
+      "startMs": 6863.471599999999,
+      "endMs": 14759.992600000001,
+      "screenshot": "screenshots/step-02.jpg",
+      "screenshotAtMs": 14630.085100000002
+    },
+    {
+      "index": 2,
+      "action": "open",
+      "caption": "结果报告回放 · 非测试现场录屏：保存每轮耗时、环境和正确性断言，让读者能核对结果。",
+      "startMs": 14760.0619,
+      "endMs": 22683.3416,
+      "screenshot": "screenshots/step-03.jpg",
+      "screenshotAtMs": 22602.893
+    },
+    {
+      "index": 3,
+      "action": "open",
+      "caption": "结果报告回放 · 非测试现场录屏：这是一份结果报告回放；内存、真实业务负载等仍需另行验证。",
+      "startMs": 22683.3745,
+      "endMs": 29498.7899,
+      "screenshot": "screenshots/step-04.jpg",
+      "screenshotAtMs": 29374.5495
+    }
+  ],
+  "media": {
+    "durationSeconds": 29.64,
+    "width": 1184,
+    "height": 940,
+    "encodedFps": 25,
+    "capturedFrames": 271,
+    "meanCaptureFps": 9.156612686227383,
+    "maxCaptureGapMs": 124.02200000000084,
+    "gif": {
+      "width": 640,
+      "fps": 8,
+      "seconds": 8,
+      "start": 0
+    },
+    "environment": {
+      "node": "v24.19.0",
+      "ffmpeg": "ffmpeg version 6.1.1-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers\r",
+      "ffprobe": "ffprobe version 4.0.2 Copyright (c) 2007-2018 the FFmpeg developers\r",
+      "chromium": "153.0.8010.12"
+    },
+    "captureWarnings": []
+  },
+  "files": [
+    {
+      "path": "demo.mp4",
+      "bytes": 364929,
+      "sha256": "95a2c2fbf05d9d26ff86145c2c2a0e44dfeece2416ec097fbeda0ec21de5a32d"
+    },
+    {
+      "path": "demo.gif",
+      "bytes": 119465,
+      "sha256": "01db5f98818abff39c7e406589625b8cd9d994a1b6660225b95ee9dfae2236b3"
+    },
+    {
+      "path": "cover.jpg",
+      "bytes": 101087,
+      "sha256": "5aec1d00e030bb7da47f61e8e17ba6dc203dc46625a40fd42b53659d238f429f"
+    },
+    {
+      "path": "README-snippet.md",
+      "bytes": 1030,
+      "sha256": "2e65080aa0b005ab80914e2b7df5c6f3f38d29c401476641c7fb00edf110b83c"
+    },
+    {
+      "path": "index.html",
+      "bytes": 5191,
+      "sha256": "d8160c2604801e276d0bd444231a58c4e1a2c45069fb6bfcb54a54a890fae8cd"
+    },
+    {
+      "path": "screenshots/step-01.jpg",
+      "bytes": 101087,
+      "sha256": "5aec1d00e030bb7da47f61e8e17ba6dc203dc46625a40fd42b53659d238f429f"
+    },
+    {
+      "path": "screenshots/step-02.jpg",
+      "bytes": 85990,
+      "sha256": "fa0b92042491bf53b39c601039b330a9532e78ac083048968e865f0b2e45e7fe"
+    },
+    {
+      "path": "screenshots/step-03.jpg",
+      "bytes": 123628,
+      "sha256": "2e9cf02100d1f90a1a4de6e311466a50b5641db6c8098bbd48a9c83adb42d189"
+    },
+    {
+      "path": "screenshots/step-04.jpg",
+      "bytes": 112188,
+      "sha256": "6d1438e991e7a626b1ac70ef637162dddfc2d144f81ec303252f13390e9c2ea0"
+    },
+    {
+      "path": "short.mp4",
+      "bytes": 230327,
+      "sha256": "9e81d267a979e739dbbcc2210706a74cbb5616975be7562ada36f90a964defee"
+    },
+    {
+      "path": "social.mp4",
+      "bytes": 291747,
+      "sha256": "f9123303f3121442955fcd6b910ce34aebb665a5d8e21200311b8226c5be4ff3"
+    },
+    {
+      "path": "project.md",
+      "bytes": 1397,
+      "sha256": "17177003f1b6f883aeb6fab6c470fffda47292bbc42924acbe2b2cbead64efda"
+    },
+    {
+      "path": "project.html",
+      "bytes": 3724,
+      "sha256": "0a23dc039f823c858981ea3c042c08c187915e400f8fca98f70275c7dcded203"
+    },
+    {
+      "path": "social-caption.md",
+      "bytes": 596,
+      "sha256": "b4653cf7947d98ff3bba7e36b743d5c5fa3629b181ca1ca4e2223d221c91cd8a"
+    },
+    {
+      "path": "walkthrough.html",
+      "bytes": 8055,
+      "sha256": "0c70ddc5394eadd91a5dde535d5fa9c9f9c2e3f4a8dc106534024a07fb281af8"
+    },
+    {
+      "path": "cards/01.png",
+      "bytes": 241969,
+      "sha256": "6de82ac92073d5f8a1b4a2b2f555a134e32e360d33d9185c3f91e36277e83fa8"
+    },
+    {
+      "path": "cards/02.png",
+      "bytes": 213024,
+      "sha256": "b0fd189e77e7a1a93e9cf8727cef2ba543cede7d42fb16d6a6f1e89c8f9b7896"
+    },
+    {
+      "path": "cards/03.png",
+      "bytes": 282492,
+      "sha256": "e694dbe58c76f74c11ba839f5a193f28a7f25809f399dea58bf857a2aad11f01"
+    },
+    {
+      "path": "cards/04.png",
+      "bytes": 261397,
+      "sha256": "dd29e1ea68a6f75b8bd75a83fefb6dd48b78f4c66d03caf68815313ad156736a"
+    },
+    {
+      "path": "source.html",
+      "bytes": 3272,
+      "sha256": "8675ef541c83cc12c54e1b3d80c231ce77e9c706fc647939404174c88b2e9c77"
+    },
+    {
+      "path": "sources.json",
+      "bytes": 1715,
+      "sha256": "14980f7afa899a787308ce30c55f3e94b58622c55a12d8d59bc70216df2d1035"
+    },
+    {
+      "path": "sources/01.diff",
+      "bytes": 200,
+      "sha256": "f16a44ca3e0817f52840690be560333b67abdc49475fa8bb7d4d5f0dcb2b5352"
+    },
+    {
+      "path": "sources/02.json",
+      "bytes": 129,
+      "sha256": "a074509bbff599caa0d7e147fbb1195b6d17b7ab03ddab0a5873f39194317c83"
+    },
+    {
+      "path": "sources/03.txt",
+      "bytes": 418,
+      "sha256": "706961ad94e4cbd06ae2b7ae14d7aaf784885dfbe132571f37b5a28e37854464"
+    },
+    {
+      "path": "sources/04.txt",
+      "bytes": 324,
+      "sha256": "b6838b08cfed7bdf205ec4776edb60945a653f54735dee38366be3cb7ad2bb46"
+    }
+  ],
+  "deliverables": {
+    "version": 1,
+    "files": [
+      "short.mp4",
+      "social.mp4",
+      "project.md",
+      "project.html",
+      "social-caption.md",
+      "walkthrough.html",
+      "cards/01.png",
+      "cards/02.png",
+      "cards/03.png",
+      "cards/04.png"
+    ],
+    "clips": [
+      {
+        "step": 1,
+        "start": 3.86343,
+        "duration": 3
+      },
+      {
+        "step": 2,
+        "start": 11.759992600000002,
+        "duration": 3
+      },
+      {
+        "step": 3,
+        "start": 19.6833416,
+        "duration": 3
+      },
+      {
+        "step": 4,
+        "start": 26.4987899,
+        "duration": 3
+      }
+    ],
+    "cards": [
+      {
+        "step": 1,
+        "screenshot": "screenshots/step-01.jpg",
+        "file": "cards/01.png"
+      },
+      {
+        "step": 2,
+        "screenshot": "screenshots/step-02.jpg",
+        "file": "cards/02.png"
+      },
+      {
+        "step": 3,
+        "screenshot": "screenshots/step-03.jpg",
+        "file": "cards/03.png"
+      },
+      {
+        "step": 4,
+        "screenshot": "screenshots/step-04.jpg",
+        "file": "cards/04.png"
+      }
+    ],
+    "short": {
+      "durationSeconds": 12,
+      "width": 1184,
+      "height": 940,
+      "bytes": 230327
+    },
+    "social": {
+      "durationSeconds": 20,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 291747
+    }
+  },
+  "source": {
+    "kind": "report",
+    "manifest": "sources.json",
+    "page": "source.html"
+  }
+}

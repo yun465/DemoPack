@@ -12,6 +12,7 @@ DemoPack 本身不调用模型、不需要 API Key；使用 Codex 需要另外�
 
 输入明确的网页步骤，一次生成四份材料：**详细视频、简短视频、竖屏图文视频、项目介绍**。
 同时保留短 GIF、关键截图、README 图文片段与离线预览。
+导入报告或外部素材时，成品是材料页回放；原始材料可能来自不同运行或拍摄，来源清单随包保存。
 本地处理，人工填写说明，无账号、无模型 API Key、无默认水印。
 
 [English](README.md) · [观看真实演示](docs/kit-self-showcase/demo.mp4) · [中文示例材料包](docs/showcase-zh/index.html)
@@ -21,7 +22,23 @@ DemoPack 本身不调用模型、不需要 API Key；使用 Codex 需要另外�
 上面的演示由 DemoPack 录制自己实际生成的预览页，展示详细视频、短视频、竖屏图文和项目介绍四个入口。
 [录制步骤](docs/kit-self-demo.json) · [本地任务看板演示](docs/showcase/demo.mp4)
 
-## 启动
+## 非网页项目也能整理材料
+
+代码优化可导入真实基准结果、日志和 diff；设备项目可导入自己拍摄的视频、照片与串口记录。
+`report` / `media` 将它们排成讲解页后生成四份材料，原始来源与 SHA-256 随包保存。
+这是**结果 / 素材回放**，不自动运行任意代码、录制终端或控制开发板。导出的视频静音采样，原片另附。
+[完整说明与配置](docs/NON-WEB.zh-CN.md)。
+
+```sh
+node examples/report/benchmark.mjs
+node dist/cli.js report examples/report/story.json
+node examples/media/make-fixture.mjs
+node dist/cli.js media examples/media/story.json
+```
+
+第二个示例是明确标识的合成测试素材，不是 ESP 实测。需先完成下方环境安装和构建。
+
+## 启动环境
 
 本地已构建时，Windows 可双击根目录的 `start-preview.cmd`：它会选择空闲端口并打开预览。
 终端窗口必须保持运行；关闭窗口会停止服务。也可使用 `node dist/cli.js preview docs --port 0 --open`。

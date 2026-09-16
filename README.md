@@ -13,6 +13,7 @@ Codex and is subject to its service terms. This project is not affiliated with o
 
 Turn one browser run into **a detailed video, a short video, a portrait image-and-copy video, and a project article**.
 Also export a GIF, screenshots, a README walkthrough and an offline preview. Local processing.
+For imported reports or media, exports replay the supplied material; originals may come from different runs or recordings and are included with provenance.
 Human-written copy. No account, model key or watermark.
 
 [中文](README.zh-CN.md) · [Watch the real demo](docs/kit-self-showcase/demo.mp4) · [Sample pack](docs/showcase/index.html)
@@ -23,6 +24,21 @@ The demo above is recorded by DemoPack from its actual exported preview. It show
 [Sample app recording](docs/showcase/demo.mp4) · [Chinese example](docs/showcase-zh/index.html)
 
 ## Start locally
+
+### Non-web projects
+
+Use `report <story.json>` for measured results, logs and diffs, or `media <story.json>` for local photos,
+MP4 clips and device logs. Both replay an authored presentation through the existing browser exporter
+and include original files, provenance and hashes. They do not record a terminal, run arbitrary commands
+or control hardware. Imported videos are sampled silently; originals are retained.
+
+After setup, try `node examples/report/benchmark.mjs` then
+`node dist/cli.js report examples/report/story.json`. For media, run
+`node examples/media/make-fixture.mjs` then `node dist/cli.js media examples/media/story.json`.
+The media fixture is explicitly synthetic, not evidence of an ESP board working.
+[Input contract and limitations (Chinese)](docs/NON-WEB.zh-CN.md).
+
+### Setup
 
 The `init` starter now exports all four deliverables with one `generate` command. Configure the optional
 `release` object to choose short-video steps, social cards and authored project sections.

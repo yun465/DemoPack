@@ -6,7 +6,7 @@ import { performance } from 'node:perf_hooks';
 import { setTimeout as delay } from 'node:timers/promises';
 import { inspectConfig } from './release.js';
 import { binary, run } from './process.js';
-import { writeBundle, type Event } from './bundle.js';
+import { writeBundle, type Event, type Attachments } from './bundle.js';
 import { serve } from './server.js';
 import { exportKit } from './kit.js';
 
@@ -36,6 +36,7 @@ export async function generate(
   outRoot = 'output',
   signal?: AbortSignal,
   onProgress = (s: string) => console.log(s),
+  attachments?: Attachments,
 ) {
   const configPath = path.resolve(configFile);
   const demo = await inspectConfig(configPath);
@@ -433,6 +434,7 @@ export async function generate(
       runId,
       { ...media, captureWarnings },
       kit,
+      attachments,
     );
     check();
     await rm(work, { recursive: true, force: true });

@@ -16,7 +16,10 @@
     "examples/starter",
     "examples/launch",
     "examples/中文便签",
+    "examples/report",
+    "examples/media",
     "demo.schema.json",
+    "story.schema.json",
     "THIRD_PARTY_NOTICES.md",
     "docs/licenses"
   ],
@@ -35,7 +38,9 @@
     "test:edges": "node tests/edges.mjs",
     "format:check": "prettier --check src tests package.json tsconfig.json",
     "test:kit": "node tests/kit-integration.mjs",
-    "test:keyboard": "node tests/keyboard.mjs"
+    "test:keyboard": "node tests/keyboard.mjs",
+    "test:imports": "node tests/imports-integration.mjs",
+    "test:import-video": "node tests/import-video.mjs"
   },
   "dependencies": {
     "playwright": "1.63.0",

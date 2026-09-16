@@ -1,0 +1,11 @@
+{
+  "title": "素材导入 · 合成测试片示例",
+  "summary": "用明确标记的合成测试图和动态测试片验证图片、视频、说明的导入流程。这不是 ESP 开发板演示。",
+  "conditions": "运行 make-fixture.mjs，使用 FFmpeg testsrc2 生成 960×540、25 fps、10 秒测试片和一张测试图。没有连接硬件。",
+  "limitations": "素材为合成测试内容，不证明任何设备功能。导出视频为静音浏览器采样回放，不能替代逐帧剪辑；原片保留在来源文件中。",
+  "chapters": [
+    {"kind":"image","file":"synthetic.png","title":"导入图片","caption":"合成测试图，仅用于检查素材导入和排版，不是设备照片。","origin":"FFmpeg testsrc2 合成测试图","seconds":6},
+    {"kind":"video","file":"synthetic.mp4","title":"播放已有视频","caption":"合成动态测试片。实际使用时替换为你拍摄的设备运行视频。","origin":"FFmpeg testsrc2 合成片；非现场设备拍摄","seconds":7,"startSeconds":1},
+    {"kind":"text","file":"fixture.txt","title":"附上说明和限制","caption":"原始素材随包保存；来源说明由作者提供，哈希不等于真实性证明。","origin":"人工填写的测试素材说明","seconds":6}
+  ]
+}

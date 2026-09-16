@@ -29,6 +29,13 @@ const assetSchema = z.object({
   sha256: z.string().regex(/^[a-f0-9]{64}$/),
 });
 const manifestSchema = z.object({
+  source: z
+    .object({
+      kind: z.enum(['report', 'media']),
+      manifest: z.literal('sources.json'),
+      page: z.literal('source.html'),
+    })
+    .optional(),
   schemaVersion: z.literal(1),
   status: z.literal('success'),
   files: z.array(assetSchema).min(5),
@@ -140,6 +147,34 @@ export async function verifyPack(directory: string) {
         throw new Error(`Invalid deliverable clip source: step ${clip.step}`);
     }
   }
+  if (manifest.source) {
+    for (const name of ['sources.json', 'source.html'])
+      if (!paths.has(name)) throw new Error(`Missing source evidence: ${name}`);
+    const provenance = z
+      .object({
+        version: z.literal(1),
+        kind: z.enum(['report', 'media']),
+        conditions: z.string().min(1),
+        limitations: z.string().min(1),
+        sources: z
+          .array(
+            z.object({
+              file: z.string(),
+              sha256: z.string(),
+              bytes: z.number(),
+              origin: z.string().min(1),
+            }),
+          )
+          .min(1),
+      })
+      .parse(JSON.parse(await readFile(path.join(root, 'sources.json'), 'utf8')));
+    if (provenance.kind !== manifest.source.kind) throw new Error('Source kind mismatch');
+    for (const source of provenance.sources) {
+      const file = manifest.files.find((f) => f.path === source.file);
+      if (!file || file.sha256 !== source.sha256 || file.bytes !== source.bytes)
+        throw new Error(`Source integrity mismatch: ${source.file}`);
+    }
+  }
   return {
     status: 'verified' as const,
     files: paths.size,
@@ -159,7 +194,7 @@ export async function rootSnippet(directory: string, prefix: string) {
   const safe = prefix.split('/').map(encodeURIComponent).join('/');
   const source = await readFile(path.join(directory, 'README-snippet.md'), 'utf8');
   return source.replace(
-    /\]\((demo\.(?:gif|mp4)|index\.html|screenshots\/[a-zA-Z0-9_.-]+)\)/g,
+    /\]\((demo\.(?:gif|mp4)|index\.html|source\.html|screenshots\/[a-zA-Z0-9_.-]+)\)/g,
     `](${safe}/$1)`,
   );
 }

@@ -1,0 +1,5 @@
+- queries.filter(x => values.includes(x)).length
++ const index = new Set(values);
++ queries.filter(x => index.has(x)).length
+
+Set 建表时间已计入优化后耗时；结果数量已断言一致。

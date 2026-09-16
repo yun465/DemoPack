@@ -1,0 +1,12 @@
+{
+  "title": "代码优化 · 用实测结果说话",
+  "summary": "比较固定输入下 Array.includes 与 Set.has 的批量查找耗时，包含建表成本并检查结果一致。",
+  "conditions": "先运行 benchmark.mjs：20000 个整数、5000 次固定查询；一次预热后交替执行七轮；展示中位数。Node 版本、平台、时间和原始耗时见 runs.txt。",
+  "limitations": "只代表当前输入和本机负载下的观测，未测内存或所有边界。视频是结果报告回放，不是终端实时录屏。",
+  "chapters": [
+    {"kind":"text","file":"change.diff","title":"先说明改动","caption":"把重复的线性查找改为集合查找，并把建表成本计入测量。","origin":"本例 benchmark.mjs 对应的代码改动摘要","seconds":6},
+    {"kind":"metrics","file":"metrics.json","title":"再看实测耗时","caption":"展示七轮运行的中位数，不把单次结果推广到所有项目。","origin":"运行 benchmark.mjs 生成的 metrics.json","seconds":7},
+    {"kind":"text","file":"runs.txt","title":"保留原始记录","caption":"保存每轮耗时、环境和正确性断言，让读者能核对结果。","origin":"本机 Node.js 实际运行记录","seconds":7},
+    {"kind":"text","file":"limits.txt","title":"把边界讲清楚","caption":"这是一份结果报告回放；内存、真实业务负载等仍需另行验证。","origin":"作者填写的实验限制说明","seconds":6}
+  ]
+}

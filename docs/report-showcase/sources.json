@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "kind": "report",
+  "title": "代码优化 · 用实测结果说话",
+  "conditions": "先运行 benchmark.mjs：20000 个整数、5000 次固定查询；一次预热后交替执行七轮；展示中位数。Node 版本、平台、时间和原始耗时见 runs.txt。",
+  "limitations": "只代表当前输入和本机负载下的观测，未测内存或所有边界。视频是结果报告回放，不是终端实时录屏。",
+  "sources": [
+    {
+      "file": "sources/01.diff",
+      "kind": "text",
+      "origin": "本例 benchmark.mjs 对应的代码改动摘要",
+      "title": "先说明改动",
+      "sha256": "f16a44ca3e0817f52840690be560333b67abdc49475fa8bb7d4d5f0dcb2b5352",
+      "bytes": 200,
+      "startSeconds": 0,
+      "seconds": 6
+    },
+    {
+      "file": "sources/02.json",
+      "kind": "metrics",
+      "origin": "运行 benchmark.mjs 生成的 metrics.json",
+      "title": "再看实测耗时",
+      "sha256": "a074509bbff599caa0d7e147fbb1195b6d17b7ab03ddab0a5873f39194317c83",
+      "bytes": 129,
+      "startSeconds": 0,
+      "seconds": 7
+    },
+    {
+      "file": "sources/03.txt",
+      "kind": "text",
+      "origin": "本机 Node.js 实际运行记录",
+      "title": "保留原始记录",
+      "sha256": "706961ad94e4cbd06ae2b7ae14d7aaf784885dfbe132571f37b5a28e37854464",
+      "bytes": 418,
+      "startSeconds": 0,
+      "seconds": 7
+    },
+    {
+      "file": "sources/04.txt",
+      "kind": "text",
+      "origin": "作者填写的实验限制说明",
+      "title": "把边界讲清楚",
+      "sha256": "b6838b08cfed7bdf205ec4776edb60945a653f54735dee38366be3cb7ad2bb46",
+      "bytes": 324,
+      "startSeconds": 0,
+      "seconds": 6
+    }
+  ]
+}
